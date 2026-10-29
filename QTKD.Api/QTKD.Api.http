@@ -1,0 +1,13 @@
+@QTKD.Api_HostAddress = http://localhost:5211
+
+### 1. Lấy danh sách khách hàng (GET /api/customers)
+GET {{QTKD.Api_HostAddress}}/api/customers
+Accept: application/json
+
+### 2. Lấy chi tiết hợp đồng theo ID hợp lệ (GET /api/contracts/1) - 200 OK
+GET {{QTKD.Api_HostAddress}}/api/contracts/1
+Accept: application/json
+
+### 3. Lấy chi tiết hợp đồng không tồn tại (GET /api/contracts/999) - 404 Not Found
+GET {{QTKD.Api_HostAddress}}/api/contracts/999
+Accept: application/json

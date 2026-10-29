@@ -1,5 +1,4 @@
 # HỆ THỐNG QUẢN TRỊ KINH DOANH (QTKD)
-## BÁO CÁO THỰC HÀNH: TUẦN 05 — TẠO NỀN TẢNG CHO QTKD
 
 - **Môn học:** Phát triển ứng dụng Hệ thống Thông tin Hiện đại
 - **Công nghệ sử dụng:** .NET 10 (ASP.NET Core Web API), Entity Framework Core 10, PostgreSQL (Npgsql), Scalar API Reference.
@@ -8,7 +7,7 @@
 
 ## 1. Cấu trúc Solution & Kiến trúc hệ thống
 
-Dự án được tổ chức theo **Kiến trúc 3 lớp (3-tier Architecture)**, phân tách rạch ròi giữa API (Presentation), Xử lý nghiệp vụ (Business Logic) và Truy cập dữ liệu (Data Access):
+Dự án được tổ chức theo **Kiến trúc 3 lớp (3-tier Architecture)**, phân tách rạch ròi giữa API, Xử lý nghiệp vụ và Truy cập dữ liệu
 
 ```text
 QTKD/
@@ -41,6 +40,7 @@ QTKD/
 ```
 
 ### Sơ đồ luồng xử lý:
+
 ```mermaid
 graph LR
     Client[Client / Swagger / REST Client] -->|HTTP Request| Controller[Controllers]
@@ -55,14 +55,16 @@ graph LR
 ## 2. Hướng dẫn Cài đặt & Cấu hình Database
 
 ### Yêu cầu môi trường:
-- [.NET 10 SDK](https://dotnet.microsoft.com/download) (hoặc .NET 9 trở lên)
-- [PostgreSQL](https://www.postgresql.org/download/) (phiên bản 14 trở lên, dịch vụ đang chạy trên cổng mặc định `5432`)
+
+- `.NET 10 SDK` (hoặc .NET 9 trở lên)
+- `PostgreSQL` (phiên bản 14 trở lên, dịch vụ đang chạy trên cổng mặc định `5432`)
 - Công cụ EF Core CLI (`dotnet-ef`): Nếu chưa có, chạy lệnh:
   ```bash
   dotnet tool install --global dotnet-ef
   ```
 
 ### Cấu hình chuỗi kết nối (Connection String):
+
 Mở file `QTKD.Api/appsettings.Development.json` và điều chỉnh thông tin kết nối tới PostgreSQL của bạn:
 
 ```json
@@ -79,34 +81,35 @@ Mở file `QTKD.Api/appsettings.Development.json` và điều chỉnh thông tin
 }
 ```
 
-> **Lưu ý bảo mật:** Mật khẩu trong môi trường thực tế cần được lưu qua `User Secrets` hoặc biến môi trường, không commit mật khẩu nhạy cảm lên Git repository công khai.
-
 ---
 
 ## 3. Chạy Migration & Cập nhật Cơ sở dữ liệu
 
 Từ thư mục `QTKD`:
 
-### Bước 1: Tạo Migration (Đã được tạo sẵn trong thư mục `Migrations/`)
-Nếu cần tạo mới lại từ đầu:
+### Bước 1: Tạo Migration
+
 ```bash
 dotnet ef migrations add InitialCreate --project QTKD.Api
 ```
 
 ### Bước 2: Cập nhật Database
-Chạy lệnh sau để EF Core tự động kết nối vào PostgreSQL, tạo cơ sở dữ liệu `QTKD`, tạo 4 bảng và nạp sẵn dữ liệu mẫu (`Seed Data`):
+
+Chạy lệnh sau để EF Core tự động kết nối vào PostgreSQL, tạo 4 bảng và nạp sẵn dữ liệu mẫu:
+
 ```bash
 dotnet ef database update --project QTKD.Api
 ```
 
-### Dữ liệu mẫu (Seed Data) đã nạp sẵn:
+### Dữ liệu mẫu đã nạp sẵn:
+
 - **2 Khách hàng (`Customers`):**
-  - ID 1: *Công ty TNHH MTV Minh Phát* (Status: `Active`)
-  - ID 2: *Công ty Cổ phần Vận tải Biển Đông* (Status: `Active`)
+  - ID 1: _Công ty TNHH MTV Minh Phát_ (Status: `Active`)
+  - ID 2: _Công ty Cổ phần Vận tải Biển Đông_ (Status: `Active`)
 - **1 Hợp đồng (`Contracts`):**
   - ID 1: Số hiệu `HD-2026-018`, CustomerId = 1, Hiệu lực từ `01/10/2026` đến `30/09/2027`, Trạng thái: `Draft`, Nhóm dịch vụ: `Dịch vụ cảng`.
 - **1 Bảng giá (`PriceLists`):**
-  - ID 1: *Bảng giá Dịch vụ Cảng 2026*, Ngày hiệu lực: `01/01/2026`
+  - ID 1: _Bảng giá Dịch vụ Cảng 2026_, Ngày hiệu lực: `01/01/2026`
 - **2 Mục đơn giá (`PriceItems`):**
   - ID 1: Mã `PORT_STORAGE`, Đơn giá `150,000`
   - ID 2: Mã `PORT_HANDLING`, Đơn giá `350,000`
@@ -122,8 +125,9 @@ dotnet run --project QTKD.Api
 ```
 
 Sau khi khởi động thành công, ứng dụng sẽ lắng nghe tại:
+
 - HTTP: `http://localhost:5211`
-- Giao diện tài liệu API tương tác (**Scalar API Reference**):
+- Giao diện tài liệu API tương tác (**Scalar**):
   👉 **`http://localhost:5211/scalar/v1`**
 
 ---
@@ -131,9 +135,9 @@ Sau khi khởi động thành công, ứng dụng sẽ lắng nghe tại:
 ## 5. Thử nghiệm 2 Endpoint API
 
 Bạn có thể kiểm thử trực tiếp bằng:
-- File kịch bản [QTKD.Api.http](file:///d:/1_Personal/Visual-Code/1_ForthYear/PTUD/QTKD/QTKD.Api/QTKD.Api.http) trong VS Code.
+
+- File kịch bản `QTKD.Api.http` trong mã nguồn.
 - Giao diện Scalar tại `http://localhost:5211/scalar/v1`.
-- Postman hoặc cURL.
 
 ---
 
@@ -143,10 +147,6 @@ Bạn có thể kiểm thử trực tiếp bằng:
   ```http
   GET http://localhost:5211/api/customers
   Accept: application/json
-  ```
-- **cURL:**
-  ```bash
-  curl -X GET http://localhost:5211/api/customers
   ```
 - **Kết quả mong đợi (`200 OK`):**
   ```json
@@ -169,14 +169,11 @@ Bạn có thể kiểm thử trực tiếp bằng:
 ### Endpoint 2: Lấy chi tiết hợp đồng theo ID (`GET /api/contracts/{id}`)
 
 #### Kịch bản 1: Hợp đồng hợp lệ (`200 OK`)
+
 - **HTTP Request:**
   ```http
   GET http://localhost:5211/api/contracts/1
   Accept: application/json
-  ```
-- **cURL:**
-  ```bash
-  curl -X GET http://localhost:5211/api/contracts/1
   ```
 - **Kết quả mong đợi (`200 OK`):**
   ```json
@@ -194,6 +191,7 @@ Bạn có thể kiểm thử trực tiếp bằng:
   ```
 
 #### Kịch bản 2: Hợp đồng không tồn tại (`404 Not Found`)
+
 - **HTTP Request:**
   ```http
   GET http://localhost:5211/api/contracts/999
@@ -210,7 +208,7 @@ Bạn có thể kiểm thử trực tiếp bằng:
 
 ## 6. Đối chiếu dữ liệu trong PostgreSQL
 
-Mở pgAdmin, DBeaver hoặc chạy lệnh SQL trong `psql` để xác minh dữ liệu trả về từ API trùng khớp hoàn toàn với database:
+Mở pgAdmin hoặc chạy lệnh SQL trong `psql` để xác minh dữ liệu trả về từ API trùng khớp hoàn toàn với database:
 
 ```sql
 -- 1. Kiểm tra bảng Khách hàng

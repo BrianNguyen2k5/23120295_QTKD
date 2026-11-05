@@ -7,6 +7,7 @@ Tài liệu này tổng hợp kiến trúc thành phần, đặc tả chi tiết
 ## 1. Sơ đồ Kiến trúc Thành phần & Trạng thái Hợp đồng
 
 ### 1.1. Kiến trúc 3 tầng (3-Tier Architecture)
+
 ```mermaid
 graph LR
     Client[Client / Scalar / REST Client] -->|HTTP Request| Controller[Controllers<br/>src/QTKD.Api/Controllers]
@@ -17,6 +18,7 @@ graph LR
 ```
 
 ### 1.2. Sơ đồ chuyển trạng thái Hợp đồng trong phạm vi US03
+
 ```mermaid
 stateDiagram-v2
     [*] --> Draft : POST /api/contracts
@@ -30,6 +32,7 @@ stateDiagram-v2
 ## 2. Đặc tả chi tiết US03 – Gửi hợp đồng trình duyệt (Mục 4.3 & 4.4)
 
 ### 2.1. Điều kiện gửi, trạng thái trước/sau và trường hợp từ chối
+
 - **Trạng thái trước khi gửi:** `Draft` (Bản nháp).
 - **Trạng thái sau khi gửi thành công:** `PendingApproval` (Chờ phê duyệt) — tuân thủ **CTR-03** (không chuyển thẳng sang `Approved`).
 - **4 điều kiện bắt buộc của quy tắc `CTR-02`:**
@@ -43,8 +46,9 @@ stateDiagram-v2
   - Vi phạm bất kỳ điều kiện nào của `CTR-02` $\rightarrow$ `400 Bad Request` kèm mảng `errors` liệt kê rõ các điều kiện chưa đạt; không thay đổi trạng thái hợp đồng (**AC03**).
 
 ### 2.2. Giả định dùng trong bản Demo & Giới hạn phiên bản hiện tại
+
 1. **Giả định về nội dung/tệp bắt buộc (`CTR-02`):**
-   - Do ở Phase 1 danh sách tệp và trường nội dung bắt buộc cho từng loại hợp đồng đang thuộc mục *"Cần xác nhận"*, bản demo Tuần 06 sử dụng 2 trường trên bảng `Contracts` là **`ServiceGroup`** (đại diện *Nội dung bắt buộc*) và **`AttachmentUrl`** (đại diện *Tệp bắt buộc*). Khi tạo nháp (`Draft`), 2 trường này được phép để `null`; khi gọi `Submit`, cả 2 trường bắt buộc phải có giá trị.
+   - Do ở Phase 1 danh sách tệp và trường nội dung bắt buộc cho từng loại hợp đồng đang thuộc mục _"Cần xác nhận"_, bản demo Tuần 06 sử dụng 2 trường trên bảng `Contracts` là **`ServiceGroup`** (đại diện _Nội dung bắt buộc_) và **`AttachmentUrl`** (đại diện _Tệp bắt buộc_). Khi tạo nháp (`Draft`), 2 trường này được phép để `null`; khi gọi `Submit`, cả 2 trường bắt buộc phải có giá trị.
 2. **Cách mô phỏng việc gửi trình duyệt & Chống gửi lặp (`AC04`, `AC05`):**
    - Do chưa xây dựng phân hệ `Approval` đầy đủ ở Tuần 06, khi `Submit` hợp lệ, hệ thống sinh mã phiên phê duyệt mô phỏng `ApprovalId` theo định dạng `APR-{yyyyMMdd}-{ContractId:D4}` (ví dụ: `APR-20261105-0001`), lưu `SubmittedAt`, `SubmitComment` và `IdempotencyKey` vào bảng `Contracts`.
    - **Xử lý khi gửi cùng một hợp đồng 2 lần (Bước 12):**
@@ -55,22 +59,23 @@ stateDiagram-v2
 
 ## 3. Bảng đối chiếu US03 & Quy tắc CTR-01..03 với Mã nguồn
 
-| Mã quy tắc / AC | Ý nghĩa nghiệp vụ | File & Hàm xử lý | Mã HTTP & Kết quả kiểm tra |
-| :---: | :--- | :--- | :--- |
-| **CTR-01** | Chỉ cho sửa hợp đồng ở `Draft` hoặc `RevisionRequested` | `src/QTKD.Api/Services/ContractService.cs` $\rightarrow$ `UpdateAsync()` | Thử sửa Contract ở `PendingApproval` $\rightarrow$ Bị từ chối với `409 Conflict` (`CTR01_EDIT_NOT_ALLOWED`). |
-| **CTR-02** | Chỉ gửi khi `Customer`, ngày hiệu lực, nội dung (`ServiceGroup`) và tệp bắt buộc (`AttachmentUrl`) hợp lệ | `src/QTKD.Api/Services/ContractService.cs` $\rightarrow$ `SubmitAsync()` | Thiếu 1 điều kiện $\rightarrow$ Trả `400 Bad Request` (`CTR02_VALIDATION_FAILED`) kèm danh sách lỗi, dữ liệu không đổi. |
-| **CTR-03** | Không được chuyển `Draft` thẳng sang `Approved` | `src/QTKD.Api/Services/ContractService.cs` $\rightarrow$ `CreateAsync()`, `UpdateAsync()`, `SubmitAsync()` | Chặn truyền `Status = "Approved"` ở `POST`/`PUT` (`400`); `Submit` thành công chỉ chuyển sang `PendingApproval`. |
-| **AC01 (TC01)** | Người không có quyền gửi $\rightarrow$ từ chối | `ContractService.SubmitAsync()` | Header `X-User-Role: Guest` $\rightarrow$ `403 Forbidden` (`AC01_FORBIDDEN`). |
-| **AC02 (TC02)** | Hợp đồng sai trạng thái $\rightarrow$ từ chối | `ContractService.SubmitAsync()` | Hợp đồng khác `Draft` $\rightarrow$ `409 Conflict` (`AC02_INVALID_CONTRACT_STATE`). |
-| **AC03 (TC03)** | Không đạt `CTR-02` $\rightarrow$ trả danh sách điều kiện chưa đạt | `ContractService.SubmitAsync()` | Trả `400 Bad Request` + mảng `errors` chi tiết. |
-| **AC04 (TC04)** | Hợp đồng hợp lệ $\rightarrow$ chuyển `PendingApproval` & tạo `approvalId` | `ContractService.SubmitAsync()` | Trả `200 OK` kèm `contractId`, `status: "PendingApproval"`, `approvalId`. |
-| **AC05 (TC05)** | Gửi lặp không tạo nhiều phiên phê duyệt | `ContractService.SubmitAsync()` | Cùng `Idempotency-Key` trả về `approvalId` cũ (`200 OK`); khác khóa trả `409 Conflict`. |
+| Mã quy tắc / AC | Ý nghĩa nghiệp vụ                                                                                         | File & Hàm xử lý                                                                                           | Mã HTTP & Kết quả kiểm tra                                                                                              |
+| :-------------: | :-------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------- |
+|   **CTR-01**    | Chỉ cho sửa hợp đồng ở `Draft` hoặc `RevisionRequested`                                                   | `src/QTKD.Api/Services/ContractService.cs` $\rightarrow$ `UpdateAsync()`                                   | Thử sửa Contract ở `PendingApproval` $\rightarrow$ Bị từ chối với `409 Conflict` (`CTR01_EDIT_NOT_ALLOWED`).            |
+|   **CTR-02**    | Chỉ gửi khi `Customer`, ngày hiệu lực, nội dung (`ServiceGroup`) và tệp bắt buộc (`AttachmentUrl`) hợp lệ | `src/QTKD.Api/Services/ContractService.cs` $\rightarrow$ `SubmitAsync()`                                   | Thiếu 1 điều kiện $\rightarrow$ Trả `400 Bad Request` (`CTR02_VALIDATION_FAILED`) kèm danh sách lỗi, dữ liệu không đổi. |
+|   **CTR-03**    | Không được chuyển `Draft` thẳng sang `Approved`                                                           | `src/QTKD.Api/Services/ContractService.cs` $\rightarrow$ `CreateAsync()`, `UpdateAsync()`, `SubmitAsync()` | Chặn truyền `Status = "Approved"` ở `POST`/`PUT` (`400`); `Submit` thành công chỉ chuyển sang `PendingApproval`.        |
+| **AC01 (TC01)** | Người không có quyền gửi $\rightarrow$ từ chối                                                            | `ContractService.SubmitAsync()`                                                                            | Header `X-User-Role: Guest` $\rightarrow$ `403 Forbidden` (`AC01_FORBIDDEN`).                                           |
+| **AC02 (TC02)** | Hợp đồng sai trạng thái $\rightarrow$ từ chối                                                             | `ContractService.SubmitAsync()`                                                                            | Hợp đồng khác `Draft` $\rightarrow$ `409 Conflict` (`AC02_INVALID_CONTRACT_STATE`).                                     |
+| **AC03 (TC03)** | Không đạt `CTR-02` $\rightarrow$ trả danh sách điều kiện chưa đạt                                         | `ContractService.SubmitAsync()`                                                                            | Trả `400 Bad Request` + mảng `errors` chi tiết.                                                                         |
+| **AC04 (TC04)** | Hợp đồng hợp lệ $\rightarrow$ chuyển `PendingApproval` & tạo `approvalId`                                 | `ContractService.SubmitAsync()`                                                                            | Trả `200 OK` kèm `contractId`, `status: "PendingApproval"`, `approvalId`.                                               |
+| **AC05 (TC05)** | Gửi lặp không tạo nhiều phiên phê duyệt                                                                   | `ContractService.SubmitAsync()`                                                                            | Cùng `Idempotency-Key` trả về `approvalId` cũ (`200 OK`); khác khóa trả `409 Conflict`.                                 |
 
 ---
 
 ## 4. Danh sách API kèm Mẫu Request / Response
 
 ### 4.1. Customer API (`/api/customers`)
+
 - **`GET /api/customers`**: Lấy danh sách khách hàng.
 - **`GET /api/customers/{id}`**: Xem chi tiết khách hàng.
 - **`POST /api/customers`**: Tạo khách hàng mới.
@@ -92,6 +97,7 @@ stateDiagram-v2
 - **`PUT /api/customers/{id}`**: Cập nhật thông tin khách hàng.
 
 ### 4.2. Contract & US03 API (`/api/contracts`)
+
 - **`GET /api/contracts`**: Lấy danh sách hợp đồng.
 - **`GET /api/contracts/{id}`**: Xem chi tiết hợp đồng.
 - **`POST /api/contracts`**: Tạo hợp đồng nháp (`Draft`).
@@ -149,6 +155,7 @@ stateDiagram-v2
     ```
 
 ### 4.3. Pricing API (`/api/pricelists`)
+
 - **`GET /api/pricelists`**: Xem danh sách bảng giá.
 - **`GET /api/pricelists/{id}`**: Xem chi tiết bảng giá kèm danh sách `Items`.
 - **`POST /api/pricelists`**: Tạo bảng giá mới.

@@ -1,13 +1,191 @@
 @QTKD.Api_HostAddress = http://localhost:5211
 
-### 1. Lấy danh sách khách hàng (GET /api/customers)
+#########################################################################
+# PHẦN 1: QUẢN LÝ KHÁCH HÀNG (CUSTOMER API)
+#########################################################################
+
+### 1.1. Lấy danh sách khách hàng (GET /api/customers)
 GET {{QTKD.Api_HostAddress}}/api/customers
 Accept: application/json
 
-### 2. Lấy chi tiết hợp đồng theo ID hợp lệ (GET /api/contracts/1) - 200 OK
+### 1.2. Xem chi tiết khách hàng theo ID (GET /api/customers/{id})
+GET {{QTKD.Api_HostAddress}}/api/customers/1
+Accept: application/json
+
+### 1.3. Tạo mới khách hàng (POST /api/customers) - Bước 1 luồng Demo
+POST {{QTKD.Api_HostAddress}}/api/customers
+Content-Type: application/json
+
+{
+  "name": "Công ty Cổ phần Logistics Minh Phát Chi nhánh Nam",
+  "status": "Active"
+}
+
+### 1.4. Cập nhật khách hàng (PUT /api/customers/{id})
+PUT {{QTKD.Api_HostAddress}}/api/customers/2
+Content-Type: application/json
+
+{
+  "name": "Công ty Cổ phần Vận tải Biển Đông (Đã cập nhật)",
+  "status": "Active"
+}
+
+### 1.5. Kiểm tra lỗi: Tạo khách hàng thiếu Tên (400 Bad Request)
+POST {{QTKD.Api_HostAddress}}/api/customers
+Content-Type: application/json
+
+{
+  "name": "",
+  "status": "Active"
+}
+
+
+#########################################################################
+# PHẦN 2: LUỒNG DEMO XUYÊN SUỐT US03 & KIỂM TRA CTR-01, CTR-02, CTR-03
+# (Theo Bước 13 - Mục 4.3 DESCRIPTION.md)
+#########################################################################
+
+### 2.1. Xem hợp đồng mẫu HD-2026-018 đang ở Draft nhưng thiếu AttachmentUrl (GET /api/contracts/1)
 GET {{QTKD.Api_HostAddress}}/api/contracts/1
 Accept: application/json
 
-### 3. Lấy chi tiết hợp đồng không tồn tại (GET /api/contracts/999) - 404 Not Found
-GET {{QTKD.Api_HostAddress}}/api/contracts/999
+### 2.2. Thử gửi trình duyệt HD-2026-018 khi còn thiếu tệp đính kèm (400 Bad Request - Vi phạm CTR-02 / AC03)
+POST {{QTKD.Api_HostAddress}}/api/contracts/1/submit
+Content-Type: application/json
+
+{
+  "comment": "Gửi trình duyệt lần 1 (khi chưa đính kèm tệp hợp đồng)"
+}
+
+### 2.3. Tạo mới một Contract Draft thiếu dữ liệu bắt buộc (POST /api/contracts)
+POST {{QTKD.Api_HostAddress}}/api/contracts
+Content-Type: application/json
+
+{
+  "contractNo": "HD-2026-019",
+  "customerId": 1,
+  "startDate": "2026-11-01",
+  "endDate": "2027-10-31",
+  "serviceGroup": null,
+  "attachmentUrl": null
+}
+
+### 2.4. Kiểm tra CTR-03: Thử tạo Contract nhảy thẳng sang trạng thái Approved (400 Bad Request)
+POST {{QTKD.Api_HostAddress}}/api/contracts
+Content-Type: application/json
+
+{
+  "contractNo": "HD-2026-999",
+  "customerId": 1,
+  "startDate": "2026-11-01",
+  "endDate": "2027-10-31",
+  "status": "Approved",
+  "serviceGroup": "Dịch vụ cảng",
+  "attachmentUrl": "files/HD-2026-999.pdf"
+}
+
+### 2.5. Bổ sung đầy đủ dữ liệu bắt buộc (ServiceGroup & AttachmentUrl) cho HD-2026-018 (PUT /api/contracts/1)
+PUT {{QTKD.Api_HostAddress}}/api/contracts/1
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "startDate": "2026-10-01",
+  "endDate": "2027-09-30",
+  "serviceGroup": "Dịch vụ cảng",
+  "attachmentUrl": "files/HD-2026-018-minh-phat.pdf"
+}
+
+### 2.6. Kiểm tra AC01: Người dùng không có quyền gửi (Header X-User-Role: Guest -> 403 Forbidden)
+POST {{QTKD.Api_HostAddress}}/api/contracts/1/submit
+X-User-Role: Guest
+Content-Type: application/json
+
+{
+  "comment": "Thử gửi bằng tài khoản không có quyền Kinh doanh"
+}
+
+### 2.7. Gửi trình duyệt HD-2026-018 thành công khi đã đủ điều kiện CTR-02 (200 OK -> PendingApproval)
+POST {{QTKD.Api_HostAddress}}/api/contracts/1/submit
+X-User-Role: Sales
+Idempotency-Key: submit-hd-2026-018-key-01
+Content-Type: application/json
+
+{
+  "comment": "Hồ sơ hợp đồng Công ty Minh Phát đã hoàn tất, kính trình phê duyệt."
+}
+
+### 2.8. Kiểm tra Bước 12 / AC05 (Idempotency): Gửi lại lần 2 với CÙNG Idempotency-Key -> Trả về cùng ApprovalId, không tạo mới
+POST {{QTKD.Api_HostAddress}}/api/contracts/1/submit
+X-User-Role: Sales
+Idempotency-Key: submit-hd-2026-018-key-01
+Content-Type: application/json
+
+{
+  "comment": "Nhấn gửi lặp cùng khóa Idempotency-Key"
+}
+
+### 2.9. Kiểm tra Bước 12 / AC02: Gửi lại lần 2 KHÔNG cùng khóa khi hợp đồng đã ở PendingApproval (409 Conflict)
+POST {{QTKD.Api_HostAddress}}/api/contracts/1/submit
+X-User-Role: Sales
+Content-Type: application/json
+
+{
+  "comment": "Thử gửi lại hợp đồng đang chờ duyệt"
+}
+
+### 2.10. Kiểm tra CTR-01: Thử chỉnh sửa hợp đồng đang ở trạng thái PendingApproval (409 Conflict - Bị từ chối)
+PUT {{QTKD.Api_HostAddress}}/api/contracts/1
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "startDate": "2026-10-01",
+  "endDate": "2027-12-31",
+  "serviceGroup": "Dịch vụ lưu bãi",
+  "attachmentUrl": "files/HD-2026-018-modified.pdf"
+}
+
+
+#########################################################################
+# PHẦN 3: QUẢN LÝ BẢNG GIÁ & ĐƠN GIÁ DỊCH VỤ (PRICING API)
+#########################################################################
+
+### 3.1. Xem danh sách bảng giá (GET /api/pricelists)
+GET {{QTKD.Api_HostAddress}}/api/pricelists
+Accept: application/json
+
+### 3.2. Xem chi tiết bảng giá ID = 1 (GET /api/pricelists/1)
+GET {{QTKD.Api_HostAddress}}/api/pricelists/1
+Accept: application/json
+
+### 3.3. Tạo bảng giá mới (POST /api/pricelists)
+POST {{QTKD.Api_HostAddress}}/api/pricelists
+Content-Type: application/json
+
+{
+  "name": "Bảng giá Dịch vụ Bốc xếp & Vận chuyển Quý 4/2026",
+  "effectiveDate": "2026-10-01"
+}
+
+### 3.4. Thêm PriceItem hợp lệ vào Bảng giá ID = 1 (POST /api/pricelists/1/items)
+POST {{QTKD.Api_HostAddress}}/api/pricelists/1/items
+Content-Type: application/json
+
+{
+  "serviceCode": "PORT_CRANE_LIFT",
+  "unitPrice": 450000
+}
+
+### 3.5. Kiểm tra lỗi: Thêm PriceItem có đơn giá <= 0 (400 Bad Request)
+POST {{QTKD.Api_HostAddress}}/api/pricelists/1/items
+Content-Type: application/json
+
+{
+  "serviceCode": "INVALID_SERVICE",
+  "unitPrice": -10000
+}
+
+### 3.6. Xem danh sách PriceItem của Bảng giá ID = 1 (GET /api/pricelists/1/items)
+GET {{QTKD.Api_HostAddress}}/api/pricelists/1/items
 Accept: application/json

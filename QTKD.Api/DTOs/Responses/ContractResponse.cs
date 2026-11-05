@@ -10,5 +10,9 @@ public class ContractResponse
 	public DateOnly EndDate { get; set; }
 	public string Status { get; set; } = string.Empty;
 	public string? ServiceGroup { get; set; }
+	public string? AttachmentUrl { get; set; }
+	public string? ApprovalId { get; set; }
+	public DateTime? SubmittedAt { get; set; }
+	public string? SubmitComment { get; set; }
 	public DateTime CreatedAt { get; set; }
 }

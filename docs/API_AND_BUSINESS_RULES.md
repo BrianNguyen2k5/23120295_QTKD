@@ -29,7 +29,7 @@ stateDiagram-v2
 
 ---
 
-## 2. Đặc tả chi tiết US03 – Gửi hợp đồng trình duyệt (Mục 4.3 & 4.4)
+## 2. Đặc tả chi tiết US03 – Gửi hợp đồng trình duyệt
 
 ### 2.1. Điều kiện gửi, trạng thái trước/sau và trường hợp từ chối
 
@@ -51,7 +51,7 @@ stateDiagram-v2
    - Do ở Phase 1 danh sách tệp và trường nội dung bắt buộc cho từng loại hợp đồng đang thuộc mục _"Cần xác nhận"_, bản demo Tuần 06 sử dụng 2 trường trên bảng `Contracts` là **`ServiceGroup`** (đại diện _Nội dung bắt buộc_) và **`AttachmentUrl`** (đại diện _Tệp bắt buộc_). Khi tạo nháp (`Draft`), 2 trường này được phép để `null`; khi gọi `Submit`, cả 2 trường bắt buộc phải có giá trị.
 2. **Cách mô phỏng việc gửi trình duyệt & Chống gửi lặp (`AC04`, `AC05`):**
    - Do chưa xây dựng phân hệ `Approval` đầy đủ ở Tuần 06, khi `Submit` hợp lệ, hệ thống sinh mã phiên phê duyệt mô phỏng `ApprovalId` theo định dạng `APR-{yyyyMMdd}-{ContractId:D4}` (ví dụ: `APR-20261105-0001`), lưu `SubmittedAt`, `SubmitComment` và `IdempotencyKey` vào bảng `Contracts`.
-   - **Xử lý khi gửi cùng một hợp đồng 2 lần (Bước 12):**
+   - **Xử lý khi gửi cùng một hợp đồng 2 lần:**
      - Nếu gửi lại kèm cùng header `Idempotency-Key` $\rightarrow$ Hệ thống trả lại `200 OK` với cùng `approvalId` đã tạo ở lần 1 (Idempotent – không sinh thêm lần xử lý mới).
      - Nếu gửi lại không kèm hoặc khác `Idempotency-Key` $\rightarrow$ Bị từ chối với `409 Conflict` vì hợp đồng đã chuyển sang `PendingApproval`.
 

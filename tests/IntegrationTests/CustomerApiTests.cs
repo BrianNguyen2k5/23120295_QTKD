@@ -19,7 +19,7 @@ public class CustomerApiTests : IClassFixture<CustomWebApplicationFactory>
 		_client = factory.CreateClient();
 	}
 
-	// TC01: Tạo Customer hợp lệ -> Tạo được và đọc lại từ DB (Mục 5.3 & Bước 17)
+	// TC01: Tạo Customer hợp lệ -> Tạo được và đọc lại từ DB
 	[Fact]
 	public async Task TC01_CreateCustomer_WithValidData_ReturnsCreated_AndPersistsToDatabase()
 	{
@@ -48,7 +48,7 @@ public class CustomerApiTests : IClassFixture<CustomWebApplicationFactory>
 		fetchedCustomer.Should().NotBeNull();
 		fetchedCustomer!.Name.Should().Be("Công ty Cổ phần Vận tải Á Châu");
 
-		// Act 3: Đọc trực tiếp từ Database kiểm thử để đảm bảo dữ liệu đã lưu thực sự (theo Bước 17)
+		// Act 3: Đọc trực tiếp từ Database kiểm thử để đảm bảo dữ liệu đã lưu thực sự
 		using var scope = _factory.Services.CreateScope();
 		var db = scope.ServiceProvider.GetRequiredService<QtkdDbContext>();
 		var dbCustomer = await db.Customers.FindAsync(createdCustomer.Id);

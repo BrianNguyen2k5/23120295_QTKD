@@ -219,7 +219,7 @@ public class ContractService : IContractService
 				$"Người dùng có vai trò '{effectiveRole}' không có quyền gửi hợp đồng trình duyệt. Chỉ Nhân viên Kinh doanh ('Sales') mới được phép thực hiện.");
 		}
 
-		// 2. Xử lý chống gửi lặp cùng khóa Idempotency-Key (AC05 / TC05 & Bước 12)
+		// 2. Xử lý chống gửi lặp cùng khóa Idempotency-Key (AC05 / TC05)
 		var normalizedKey = string.IsNullOrWhiteSpace(idempotencyKey) ? null : idempotencyKey.Trim();
 		if (contract.Status.Equals("PendingApproval", StringComparison.OrdinalIgnoreCase) &&
 			normalizedKey != null &&
@@ -237,7 +237,7 @@ public class ContractService : IContractService
 			});
 		}
 
-		// 3. Kiểm tra trạng thái hợp đồng phải là Draft (AC02 / TC02 & Bước 10, 12)
+		// 3. Kiểm tra trạng thái hợp đồng phải là Draft (AC02 / TC02)
 		if (!contract.Status.Equals("Draft", StringComparison.OrdinalIgnoreCase))
 		{
 			return ServiceResult<SubmitContractResponse>.Failure(
@@ -246,7 +246,7 @@ public class ContractService : IContractService
 				$"Không thể gửi trình duyệt khi hợp đồng đang ở trạng thái '{contract.Status}'. Chỉ hợp đồng ở trạng thái 'Draft' mới được phép gửi trình duyệt.");
 		}
 
-		// 4. Kiểm tra toàn diện quy tắc CTR-02 (AC03 / TC03 & Bước 10, 11)
+		// 4. Kiểm tra toàn diện quy tắc CTR-02 (AC03 / TC03)
 		// Điều kiện CTR-02: (1) Customer hợp lệ, (2) Ngày hiệu lực hợp lệ, (3) Đủ nội dung bắt buộc, (4) Đủ tệp bắt buộc
 		var validationErrors = new List<string>();
 

@@ -16,7 +16,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
 		builder.ConfigureServices(services =>
 		{
-			// Đăng ký QtkdDbContext sử dụng InMemory Database riêng cho Test (theo mục 16 đề bài)
+			// Đăng ký QtkdDbContext sử dụng InMemory Database riêng cho Test
 			services.AddDbContext<QtkdDbContext>(options =>
 			{
 				options.UseInMemoryDatabase(_dbName);

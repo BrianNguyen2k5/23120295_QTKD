@@ -50,7 +50,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 
 		var updateResp = await _client.PutAsJsonAsync($"/api/contracts/{created!.Id}", updateRequest);
 
-		// Assert: HTTP Status và dữ liệu đọc lại từ DB (Bước 17)
+		// Assert: HTTP Status và dữ liệu đọc lại từ DB
 		updateResp.StatusCode.Should().Be(HttpStatusCode.OK);
 		var updated = await updateResp.Content.ReadFromJsonAsync<ContractResponse>();
 		updated!.ServiceGroup.Should().Be("Dịch vụ bốc dỡ container");
@@ -104,7 +104,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		var errContent = await updateResp.Content.ReadAsStringAsync();
 		errContent.Should().Contain("CTR01_EDIT_NOT_ALLOWED");
 
-		// Dữ liệu trong DB vẫn giữ nguyên giá trị ban đầu (Bước 17)
+		// Dữ liệu trong DB vẫn giữ nguyên giá trị ban đầu
 		using var scope = _factory.Services.CreateScope();
 		var db = scope.ServiceProvider.GetRequiredService<QtkdDbContext>();
 		var dbContract = await db.Contracts.FindAsync(created.Id);
@@ -215,7 +215,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		errContent.Should().Contain("CTR03_DIRECT_STATUS_FORBIDDEN");
 	}
 
-	// TC08: Submit lặp một Contract -> Không tạo thêm kết quả xử lý trùng (AC05 & Bước 12)
+	// TC08: Submit lặp một Contract -> Không tạo thêm kết quả xử lý trùng
 	[Fact]
 	public async Task TC08_SubmitContract_DoubleSubmit_ReturnsSameApprovalIdWithoutDuplicate()
 	{
@@ -269,7 +269,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		resp3.StatusCode.Should().Be(HttpStatusCode.Conflict);
 	}
 
-	// Kiểm tra luồng liên hoàn tuần 06: Tạo Customer -> Tạo Contract Draft thiếu tệp -> Submit lỗi 400 -> Bổ sung tệp -> Submit thành công
+	// Kiểm tra luồng liên hoàn: Tạo Customer -> Tạo Contract Draft thiếu tệp -> Submit lỗi 400 -> Bổ sung tệp -> Submit thành công
 	[Fact]
 	public async Task EndToEndFlow_CreateCustomer_CreateDraft_FailSubmit_Update_SuccessSubmit()
 	{

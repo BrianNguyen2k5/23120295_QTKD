@@ -114,3 +114,43 @@ Mở file [`src/QTKD.Api/QTKD.Api.http`](src/QTKD.Api/QTKD.Api.http) (hoặc gia
    SELECT "Id", "ContractNo", "CustomerId", "Status", "ServiceGroup", "AttachmentUrl", "ApprovalId", "SubmittedAt"
    FROM "Contracts";
    ```
+
+---
+
+## 5. Hướng dẫn Chạy Kiểm thử Tự động (Tuần 07)
+
+Dự án kiểm thử tự động được đặt tại `tests/QTKD.Tests`, tách biệt rõ ràng 2 tầng kiểm thử:
+- **Unit Tests:** Kiểm tra logic nghiệp vụ tại tầng Service (`CustomerServiceTests`, `ContractServiceTests`, `PriceListServiceTests`) sử dụng thư viện `Moq` để mock các Repository.
+- **Integration Tests:** Kiểm tra tích hợp end-to-end từ HTTP Endpoint đến Database (`CustomerApiTests`, `ContractApiTests`) sử dụng `CustomWebApplicationFactory` và Database InMemory độc lập theo đúng quy định mục 16.
+
+### 5.1. Lệnh thực thi kiểm thử và xuất kết quả
+Từ thư mục gốc `QTKD`, chạy lệnh:
+```bash
+dotnet test --logger "trx;LogFileName=test_results.trx"
+```
+Kết quả kiểm thử được lưu tự động tại:
+- `tests/QTKD.Tests/TestResults/test_results.trx`
+- `docs/evidence/test_results.trx`
+
+### 5.2. Bảng kết quả kiểm thử tối thiểu (TC01 - TC08 theo Mục 5.3)
+
+| Mã Test | Dữ liệu / Thao tác kiểm thử | Kết quả mong đợi | Hình thức | Kết quả | Class kiểm thử tương ứng |
+| :---: | :--- | :--- | :---: | :---: | :--- |
+| **TC01** | Tạo Customer hợp lệ | Tạo thành công (201 Created), đọc lại được từ DB | Tự động | **PASS** | `CustomerApiTests.TC01_CreateCustomer_WithValidData_ReturnsCreated_AndPersistsToDatabase` |
+| **TC02** | Tạo Customer thiếu thông tin bắt buộc (`Name` rỗng) | Bị từ chối (400 Bad Request), có thông báo lỗi | Tự động | **PASS** | `CustomerApiTests.TC02_CreateCustomer_MissingName_ReturnsBadRequest_WithErrorDetail`<br>`CustomerServiceTests.TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest` |
+| **TC03** | Sửa Contract khi đang ở trạng thái `Draft` | Thành công (200 OK) khi dữ liệu hợp lệ | Tự động | **PASS** | `ContractApiTests.TC03_UpdateContract_WhenInDraftStatus_ReturnsOk_AndUpdatesDatabase`<br>`ContractServiceTests.TC03_UpdateContract_WhenStatusIsDraft_ReturnsSuccess` |
+| **TC04** | Sửa Contract khi đang ở trạng thái `PendingApproval` | Bị từ chối (409 Conflict - `CTR01_EDIT_NOT_ALLOWED`), dữ liệu giữ nguyên | Tự động | **PASS** | `ContractApiTests.TC04_UpdateContract_WhenInPendingApprovalStatus_ReturnsConflict_AndDataUnchanged`<br>`ContractServiceTests.TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict` |
+| **TC05** | Submit Contract thiếu điều kiện CTR-02 (thiếu tệp hoặc nội dung) | Bị từ chối (400 Bad Request - `CTR02_VALIDATION_FAILED`), vẫn giữ nguyên trạng thái `Draft` | Tự động | **PASS** | `ContractApiTests.TC05_SubmitContract_WhenMissingCTR02Conditions_ReturnsBadRequest_AndRemainsDraft`<br>`ContractServiceTests.TC05_SubmitContract_MissingRequiredContentAndAttachment_ReturnsBadRequest` |
+| **TC06** | Submit Contract hợp lệ (Customer Active, đủ tệp và nội dung) | Thành công (200 OK), chuyển sang `PendingApproval`, sinh mã `ApprovalId` | Tự động | **PASS** | `ContractApiTests.TC06_SubmitContract_WhenValid_TransitionsToPendingApproval_AndPersistsToDb`<br>`ContractServiceTests.TC06_SubmitContract_WhenAllConditionsMet_TransitionsToPendingApproval` |
+| **TC07** | Thử chuyển Contract từ `Draft` thẳng sang `Approved` qua POST/PUT | Bị từ chối (400 Bad Request - `CTR03_DIRECT_STATUS_FORBIDDEN` / `CTR03_DIRECT_APPROVAL_FORBIDDEN`) | Tự động | **PASS** | `ContractApiTests.TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest`<br>`ContractServiceTests.TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest` |
+| **TC08** | Submit lặp một Contract (gửi lần 2 với cùng hoặc khác khóa) | Cùng `Idempotency-Key` trả về cùng `ApprovalId` cũ (không trùng lặp); khác/không khóa trả 409 Conflict | Tự động | **PASS** | `ContractApiTests.TC08_SubmitContract_DoubleSubmit_ReturnsSameApprovalIdWithoutDuplicate`<br>`ContractServiceTests.TC08_SubmitContract_DoubleSubmitWithSameKey_ReturnsSameApprovalIdWithoutDuplicate` |
+
+### 5.3. Ghi nhận lỗi phát hiện trong quá trình kiểm thử & Cách xử lý (Mục 5.4)
+1. **Lỗi xung đột Database Provider trong Integration Tests:**
+   - *Cách tái hiện:* Khi chạy `WebApplicationFactory<Program>`, `Program.cs` mặc định đăng ký `UseNpgsql`, đồng thời `CustomWebApplicationFactory` đăng ký thêm `UseInMemoryDatabase`.
+   - *Nguyên nhân:* EF Core cấm đăng ký đồng thời 2 provider trong cùng một Service Provider (`InvalidOperationException: Only a single database provider can be registered`).
+   - *Giải pháp:* Tại `src/QTKD.Api/Program.cs`, thêm điều kiện `if (!builder.Environment.IsEnvironment("Testing"))` trước khi đăng ký PostgreSQL. Khi chạy test với môi trường `"Testing"`, hệ thống tự động sử dụng In-Memory Database riêng biệt, đảm bảo tính cô lập và hiệu năng cao.
+2. **Lỗi đồng bộ phiên bản EF Core Relational:**
+   - *Cách tái hiện:* Khi biên dịch `QTKD.Tests.csproj` với `net10.0`, package `Microsoft.EntityFrameworkCore.Relational` xảy ra warning xung đột giữa bản `10.0.4` và `10.0.14`.
+   - *Giải pháp:* Khai báo rõ ràng `<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.14" />` trong file `QTKD.Tests.csproj` để đồng bộ hoàn toàn với bản Design của API project.
+

@@ -22,9 +22,7 @@ public class ContractServiceTests
 
 	#region CTR-01 Tests (TC03, TC04)
 
-	/// <summary>
-	/// TC03: Sửa Contract ở Draft -> Thành công khi dữ liệu hợp lệ (CTR-01)
-	/// </summary>
+	// TC03: Sửa Contract ở Draft -> Thành công khi dữ liệu hợp lệ (CTR-01)
 	[Fact]
 	public async Task TC03_UpdateContract_WhenStatusIsDraft_ReturnsSuccess()
 	{
@@ -104,9 +102,7 @@ public class ContractServiceTests
 		existingContract.Status.Should().Be("Draft");
 	}
 
-	/// <summary>
-	/// TC04: Sửa Contract ở PendingApproval -> Bị từ chối (409 Conflict), dữ liệu giữ nguyên (CTR-01)
-	/// </summary>
+	// TC04: Sửa Contract ở PendingApproval -> Bị từ chối (409 Conflict), dữ liệu giữ nguyên (CTR-01)
 	[Theory]
 	[InlineData("PendingApproval")]
 	[InlineData("Approved")]
@@ -155,9 +151,7 @@ public class ContractServiceTests
 
 	#region CTR-02 Tests (TC05, TC06)
 
-	/// <summary>
-	/// TC05: Submit Contract thiếu điều kiện CTR-02 -> Bị từ chối (400 Bad Request), vẫn là Draft
-	/// </summary>
+	// TC05: Submit Contract thiếu điều kiện CTR-02 -> Bị từ chối (400 Bad Request), vẫn là Draft
 	[Fact]
 	public async Task TC05_SubmitContract_MissingRequiredContentAndAttachment_ReturnsBadRequest()
 	{
@@ -249,9 +243,7 @@ public class ContractServiceTests
 		result.Errors.Should().Contain(e => e.Contains("Thời gian hiệu lực không hợp lệ"));
 	}
 
-	/// <summary>
-	/// TC06: Submit Contract hợp lệ -> Chuyển sang PendingApproval (CTR-02 & CTR-03)
-	/// </summary>
+	// TC06: Submit Contract hợp lệ -> Chuyển sang PendingApproval (CTR-02 & CTR-03)
 	[Fact]
 	public async Task TC06_SubmitContract_WhenAllConditionsMet_TransitionsToPendingApproval()
 	{
@@ -294,9 +286,7 @@ public class ContractServiceTests
 
 	#region CTR-03 Tests (TC07)
 
-	/// <summary>
-	/// TC07: Thử chuyển Draft thẳng Approved -> Bị từ chối (CTR-03)
-	/// </summary>
+	// TC07: Thử chuyển Draft thẳng Approved -> Bị từ chối (CTR-03)
 	[Fact]
 	public async Task TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest()
 	{
@@ -379,9 +369,7 @@ public class ContractServiceTests
 		result.ErrorCode.Should().Be("AC01_FORBIDDEN");
 	}
 
-	/// <summary>
-	/// TC08: Submit lặp một Contract -> Không tạo thêm kết quả xử lý trùng
-	/// </summary>
+	// TC08: Submit lặp một Contract -> Không tạo thêm kết quả xử lý trùng
 	[Fact]
 	public async Task TC08_SubmitContract_DoubleSubmitWithSameKey_ReturnsSameApprovalIdWithoutDuplicate()
 	{

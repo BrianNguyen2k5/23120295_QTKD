@@ -71,9 +71,7 @@ public class ContractsController : ControllerBase
 		return Ok(result.Data);
 	}
 
-	/// <summary>
-	/// US03: Gửi hợp đồng trình duyệt (Draft -> PendingApproval)
-	/// </summary>
+	// US03: Gửi hợp đồng trình duyệt (Draft -> PendingApproval)
 	[HttpPost("{id}/submit")]
 	public async Task<ActionResult<SubmitContractResponse>> Submit(
 		int id,

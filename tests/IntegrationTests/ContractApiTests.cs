@@ -20,9 +20,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		_client = factory.CreateClient();
 	}
 
-	/// <summary>
-	/// TC03: Sửa Contract ở Draft -> Thành công khi dữ liệu hợp lệ (CTR-01)
-	/// </summary>
+	// TC03: Sửa Contract ở Draft -> Thành công khi dữ liệu hợp lệ (CTR-01)
 	[Fact]
 	public async Task TC03_UpdateContract_WhenInDraftStatus_ReturnsOk_AndUpdatesDatabase()
 	{
@@ -67,9 +65,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		dbContract.AttachmentUrl.Should().Be("files/hd-tc03.pdf");
 	}
 
-	/// <summary>
-	/// TC04: Sửa Contract ở PendingApproval -> Bị từ chối (409 Conflict), dữ liệu giữ nguyên (CTR-01)
-	/// </summary>
+	// TC04: Sửa Contract ở PendingApproval -> Bị từ chối (409 Conflict), dữ liệu giữ nguyên (CTR-01)
 	[Fact]
 	public async Task TC04_UpdateContract_WhenInPendingApprovalStatus_ReturnsConflict_AndDataUnchanged()
 	{
@@ -117,9 +113,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		dbContract.Status.Should().Be("PendingApproval");
 	}
 
-	/// <summary>
-	/// TC05: Submit Contract thiếu điều kiện CTR-02 -> Bị từ chối (400 Bad Request), vẫn là Draft
-	/// </summary>
+	// TC05: Submit Contract thiếu điều kiện CTR-02 -> Bị từ chối (400 Bad Request), vẫn là Draft
 	[Fact]
 	public async Task TC05_SubmitContract_WhenMissingCTR02Conditions_ReturnsBadRequest_AndRemainsDraft()
 	{
@@ -155,9 +149,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		dbContract.ApprovalId.Should().BeNull();
 	}
 
-	/// <summary>
-	/// TC06: Submit Contract hợp lệ -> Chuyển sang PendingApproval (CTR-02 & CTR-03)
-	/// </summary>
+	// TC06: Submit Contract hợp lệ -> Chuyển sang PendingApproval (CTR-02 & CTR-03)
 	[Fact]
 	public async Task TC06_SubmitContract_WhenValid_TransitionsToPendingApproval_AndPersistsToDb()
 	{
@@ -200,9 +192,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		dbContract.SubmittedAt.Should().NotBeNull();
 	}
 
-	/// <summary>
-	/// TC07: Thử chuyển Draft thẳng Approved -> Bị từ chối (CTR-03)
-	/// </summary>
+	// TC07: Thử chuyển Draft thẳng Approved -> Bị từ chối (CTR-03)
 	[Fact]
 	public async Task TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest()
 	{
@@ -225,9 +215,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		errContent.Should().Contain("CTR03_DIRECT_STATUS_FORBIDDEN");
 	}
 
-	/// <summary>
-	/// TC08: Submit lặp một Contract -> Không tạo thêm kết quả xử lý trùng (AC05 & Bước 12)
-	/// </summary>
+	// TC08: Submit lặp một Contract -> Không tạo thêm kết quả xử lý trùng (AC05 & Bước 12)
 	[Fact]
 	public async Task TC08_SubmitContract_DoubleSubmit_ReturnsSameApprovalIdWithoutDuplicate()
 	{
@@ -281,9 +269,7 @@ public class ContractApiTests : IClassFixture<CustomWebApplicationFactory>
 		resp3.StatusCode.Should().Be(HttpStatusCode.Conflict);
 	}
 
-	/// <summary>
-	/// Kiểm tra luồng liên hoàn tuần 06: Tạo Customer -> Tạo Contract Draft thiếu tệp -> Submit lỗi 400 -> Bổ sung tệp -> Submit thành công
-	/// </summary>
+	// Kiểm tra luồng liên hoàn tuần 06: Tạo Customer -> Tạo Contract Draft thiếu tệp -> Submit lỗi 400 -> Bổ sung tệp -> Submit thành công
 	[Fact]
 	public async Task EndToEndFlow_CreateCustomer_CreateDraft_FailSubmit_Update_SuccessSubmit()
 	{

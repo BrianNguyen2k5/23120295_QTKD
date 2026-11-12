@@ -18,9 +18,7 @@ public class CustomerServiceTests
 		_customerService = new CustomerService(_customerRepoMock.Object);
 	}
 
-	/// <summary>
-	/// TC01: Tạo Customer hợp lệ -> Tạo được và đọc lại thông tin
-	/// </summary>
+	// TC01: Tạo Customer hợp lệ -> Tạo được và đọc lại thông tin
 	[Fact]
 	public async Task TC01_CreateCustomer_WithValidData_ReturnsSuccess()
 	{
@@ -51,9 +49,7 @@ public class CustomerServiceTests
 		_customerRepoMock.Verify(r => r.CreateAsync(It.Is<Customer>(c => c.Name == request.Name && c.Status == "Active")), Times.Once);
 	}
 
-	/// <summary>
-	/// TC02: Tạo Customer thiếu thông tin bắt buộc (Name rỗng) -> Bị từ chối (400 Bad Request)
-	/// </summary>
+	// TC02: Tạo Customer thiếu thông tin bắt buộc (Name rỗng) -> Bị từ chối (400 Bad Request)
 	[Theory]
 	[InlineData("")]
 	[InlineData("   ")]

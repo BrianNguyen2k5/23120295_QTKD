@@ -19,9 +19,7 @@ public class CustomerApiTests : IClassFixture<CustomWebApplicationFactory>
 		_client = factory.CreateClient();
 	}
 
-	/// <summary>
-	/// TC01: Tạo Customer hợp lệ -> Tạo được và đọc lại từ DB (Mục 5.3 & Bước 17)
-	/// </summary>
+	// TC01: Tạo Customer hợp lệ -> Tạo được và đọc lại từ DB (Mục 5.3 & Bước 17)
 	[Fact]
 	public async Task TC01_CreateCustomer_WithValidData_ReturnsCreated_AndPersistsToDatabase()
 	{
@@ -59,9 +57,7 @@ public class CustomerApiTests : IClassFixture<CustomWebApplicationFactory>
 		dbCustomer.Status.Should().Be("Active");
 	}
 
-	/// <summary>
-	/// TC02: Tạo Customer thiếu thông tin bắt buộc -> Bị từ chối (400 Bad Request), có thông báo lỗi
-	/// </summary>
+	// TC02: Tạo Customer thiếu thông tin bắt buộc -> Bị từ chối (400 Bad Request), có thông báo lỗi
 	[Theory]
 	[InlineData("")]
 	[InlineData("   ")]

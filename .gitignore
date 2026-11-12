@@ -508,6 +508,6 @@ appsettings.Local.json
 *.local.json
 secrets.json
 
-# Cho phép lưu file minh chứng test_results.trx trong tests/
-!tests/test_results.trx
+# Cho phép lưu file minh chứng test_results.trx trong tests/TestResults/
+!tests/TestResults/
 !tests/TestResults/test_results.trx

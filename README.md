@@ -27,7 +27,8 @@ QTKD/
 │       └── QTKD.Api.http                  # Kịch bản kiểm thử trực tiếp API qua REST Client
 ├── tests/                                 # [Kiểm thử tự động - xUnit (Tuần 07)]
 │   ├── QTKD.Tests.csproj                  # Project xUnit Test (.NET 10)
-│   ├── test_results.trx                   # Kết quả thực thi kiểm thử chuẩn Visual Studio Test (.trx)
+│   ├── TestResults/                       # Thư mục lưu kết quả kiểm thử (.trx)
+│   │   └── test_results.trx               # Kết quả thực thi kiểm thử chuẩn Visual Studio Test
 │   ├── UnitTests/                         # Kiểm thử đơn vị (Service & Quy tắc CTR-01..03, Moq Repository)
 │   │   ├── CustomerServiceTests.cs        # 5 tests: Tạo mới, cập nhật, validation dữ liệu khách hàng
 │   │   ├── ContractServiceTests.cs        # 13 tests: CTR-01, CTR-02, CTR-03, US03 & Chống gửi lặp
@@ -149,10 +150,10 @@ Dự án kiểm thử tự động được đặt tại thư mục `tests/`, t�
 Từ thư mục gốc `QTKD`, chạy lệnh:
 
 ```powershell
-dotnet test --results-directory ./tests --logger "trx;LogFileName=test_results.trx"
+dotnet test --logger "trx;LogFileName=test_results.trx"
 ```
 
-- Toàn bộ kết quả kiểm thử được tự động xuất ra file minh chứng chuẩn Microsoft Visual Studio Test tại thư mục `tests/`: [`tests/test_results.trx`](tests/test_results.trx).
+- Toàn bộ kết quả kiểm thử được tự động xuất ra file minh chứng chuẩn Microsoft Visual Studio Test tại thư mục `tests/TestResults/`: [`tests/TestResults/test_results.trx`](tests/TestResults/test_results.trx).
 - Kết quả thực thi: **Passed: 43 / 43 tests (100% PASS), thời gian chạy ~2 giây.**
 
 ### 5.2. Bảng kết quả kiểm thử bắt buộc (TC01 – TC08)
@@ -239,8 +240,8 @@ dotnet ef database update --project src/QTKD.Api
 dotnet run --project src/QTKD.Api
 # (Mở trình duyệt truy cập: http://localhost:5211/scalar/v1, sau đó nhấn Ctrl+C để dừng)
 
-# Bước 5: CHẠY TEST — Chạy toàn bộ 43 test case và xuất file kết quả minh chứng vào thư mục tests/
-dotnet test --results-directory ./tests --logger "trx;LogFileName=test_results.trx"
+# Bước 5: CHẠY TEST — Chạy toàn bộ 43 test case và xuất file kết quả minh chứng vào tests/TestResults/
+dotnet test --logger "trx;LogFileName=test_results.trx"
 ```
 *(Kết quả hiển thị trên terminal: `Passed! - Failed: 0, Passed: 43, Skipped: 0, Total: 43`).*
 

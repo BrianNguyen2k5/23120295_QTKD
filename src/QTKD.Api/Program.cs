@@ -9,9 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Đăng ký QtkdDbContext kết nối PostgreSQL
-builder.Services.AddDbContext<QtkdDbContext>(options =>
-	options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Đăng ký QtkdDbContext kết nối PostgreSQL (bỏ qua khi chạy môi trường Testing)
+if (!builder.Environment.IsEnvironment("Testing"))
+{
+	builder.Services.AddDbContext<QtkdDbContext>(options =>
+		options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+}
 
 // Đăng ký Dependency Injection: Repositories & Services
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
@@ -40,3 +43,5 @@ app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program { }

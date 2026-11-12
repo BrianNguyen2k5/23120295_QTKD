@@ -26,7 +26,9 @@ QTKD/
 │       ├── Program.cs                     # Cấu hình DI & Middleware
 │       └── QTKD.Api.http                  # Kịch bản kiểm thử trực tiếp toàn bộ API
 ├── tests/                                 # [Kiểm thử tự động - xUnit (Tuần 07)]
-│   └── README.md                          # Mô tả phạm vi kiểm thử tự động
+│   ├── QTKD.Tests.csproj                  # Project xUnit Test (.NET 10)
+│   ├── UnitTests/                         # Kiểm thử đơn vị (Service & Business Rules CTR-01..03)
+│   └── IntegrationTests/                  # Kiểm thử tích hợp (API & InMemory Database)
 └── docs/                                  # [Tài liệu Thiết kế, Đặc tả API & Minh chứng]
     ├── API_AND_BUSINESS_RULES.md          # Danh sách API, mẫu Request/Response & Bảng đối chiếu US03/CTR-01..03
     └── evidence/                          # Thư mục lưu ảnh/video minh chứng demo qua các tuần
@@ -119,7 +121,7 @@ Mở file [`src/QTKD.Api/QTKD.Api.http`](src/QTKD.Api/QTKD.Api.http) (hoặc gia
 
 ## 5. Hướng dẫn Chạy Kiểm thử Tự động (Tuần 07)
 
-Dự án kiểm thử tự động được đặt tại `tests/QTKD.Tests`, tách biệt rõ ràng 2 tầng kiểm thử:
+Dự án kiểm thử tự động được đặt tại `tests/`, tách biệt rõ ràng 2 tầng kiểm thử:
 - **Unit Tests:** Kiểm tra logic nghiệp vụ tại tầng Service (`CustomerServiceTests`, `ContractServiceTests`, `PriceListServiceTests`) sử dụng thư viện `Moq` để mock các Repository.
 - **Integration Tests:** Kiểm tra tích hợp end-to-end từ HTTP Endpoint đến Database (`CustomerApiTests`, `ContractApiTests`) sử dụng `CustomWebApplicationFactory` và Database InMemory độc lập theo đúng quy định mục 16.
 
@@ -129,7 +131,7 @@ Từ thư mục gốc `QTKD`, chạy lệnh:
 dotnet test --logger "trx;LogFileName=test_results.trx"
 ```
 Kết quả kiểm thử được lưu tự động tại:
-- `tests/QTKD.Tests/TestResults/test_results.trx`
+- `tests/TestResults/test_results.trx`
 - `docs/evidence/test_results.trx`
 
 ### 5.2. Bảng kết quả kiểm thử tối thiểu (TC01 - TC08 theo Mục 5.3)
@@ -152,5 +154,5 @@ Kết quả kiểm thử được lưu tự động tại:
    - *Giải pháp:* Tại `src/QTKD.Api/Program.cs`, thêm điều kiện `if (!builder.Environment.IsEnvironment("Testing"))` trước khi đăng ký PostgreSQL. Khi chạy test với môi trường `"Testing"`, hệ thống tự động sử dụng In-Memory Database riêng biệt, đảm bảo tính cô lập và hiệu năng cao.
 2. **Lỗi đồng bộ phiên bản EF Core Relational:**
    - *Cách tái hiện:* Khi biên dịch `QTKD.Tests.csproj` với `net10.0`, package `Microsoft.EntityFrameworkCore.Relational` xảy ra warning xung đột giữa bản `10.0.4` và `10.0.14`.
-   - *Giải pháp:* Khai báo rõ ràng `<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.14" />` trong file `QTKD.Tests.csproj` để đồng bộ hoàn toàn với bản Design của API project.
+   - *Giải pháp:* Khai báo rõ ràng `<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.14" />` trong file `tests/QTKD.Tests.csproj` để đồng bộ hoàn toàn với bản Design của API project.
 

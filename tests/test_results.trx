@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="9b19af74-2276-48a7-9485-2d220490a54f" name="dell@DESKTOP-48BOI65 2026-11-12 20:53:43" runUser="DESKTOP-48BOI65\dell" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-11-12T20:53:43.5231541+07:00" queuing="2026-11-12T20:53:43.5231548+07:00" start="2026-11-12T20:53:41.7472035+07:00" finish="2026-11-12T20:53:45.8698513+07:00" />
+  <TestSettings name="default" id="2f785957-4c48-4fa3-888c-b04ebd58950b">
+    <Deployment runDeploymentRoot="dell_DESKTOP-48BOI65_2026-11-12_20_53_43" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="06079f77-2f3d-421c-9393-73aa36799cc9" testId="16fb5e78-7f28-7f02-c056-3a57df81ab78" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC03_UpdateContract_WhenStatusIsDraft_ReturnsSuccess" computerName="DESKTOP-48BOI65" duration="00:00:00.0033415" startTime="2026-11-12T20:53:43.5275189+07:00" endTime="2026-11-12T20:53:43.5309224+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="06079f77-2f3d-421c-9393-73aa36799cc9" />
+    <UnitTestResult executionId="e0a92a92-da2c-46a4-9c70-c6d8e7579cb5" testId="a60895c0-a6d5-8d3d-10c6-31174bdaf399" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict(nonEditableStatus: &quot;PendingApproval&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0004021" startTime="2026-11-12T20:53:43.4940850+07:00" endTime="2026-11-12T20:53:43.4941324+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e0a92a92-da2c-46a4-9c70-c6d8e7579cb5" />
+    <UnitTestResult executionId="987f3e0a-bf29-48ab-8404-29ca7e730d0a" testId="e05c3063-ae43-203c-5bad-6ae49c3c3746" testName="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_InvalidEffectiveDates_ReturnsBadRequest" computerName="DESKTOP-48BOI65" duration="00:00:00.0081776" startTime="2026-11-12T20:53:43.4932469+07:00" endTime="2026-11-12T20:53:43.4933013+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="987f3e0a-bf29-48ab-8404-29ca7e730d0a" />
+    <UnitTestResult executionId="9cf4f762-d3c1-4849-b032-6c412e7c9ebb" testId="1b551130-cb28-032c-d8b0-48f5390e79d9" testName="QTKD.Tests.UnitTests.PriceListServiceTests.AddPriceItem_DuplicateServiceCode_ReturnsConflict" computerName="DESKTOP-48BOI65" duration="00:00:00.0440446" startTime="2026-11-12T20:53:43.3463139+07:00" endTime="2026-11-12T20:53:43.3717119+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9cf4f762-d3c1-4849-b032-6c412e7c9ebb" />
+    <UnitTestResult executionId="0f87032f-cb5e-4a85-b81e-d703dbed78dd" testId="44b178d4-f8d3-7bd1-1366-dde5c8c1d4ab" testName="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_UnauthorizedRole_ReturnsForbidden(unauthorizedRole: &quot;Guest&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0007291" startTime="2026-11-12T20:53:43.4873426+07:00" endTime="2026-11-12T20:53:43.4873993+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f87032f-cb5e-4a85-b81e-d703dbed78dd" />
+    <UnitTestResult executionId="641ee0ed-4c1d-4a3f-ba67-cbb19c02a3e9" testId="49cf31f9-1658-0ceb-aaae-8a01846a59a4" testName="QTKD.Tests.IntegrationTests.ContractApiTests.TC06_SubmitContract_WhenValid_TransitionsToPendingApproval_AndPersistsToDb" computerName="DESKTOP-48BOI65" duration="00:00:00.0087403" startTime="2026-11-12T20:53:45.7423771+07:00" endTime="2026-11-12T20:53:45.7511684+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="641ee0ed-4c1d-4a3f-ba67-cbb19c02a3e9" />
+    <UnitTestResult executionId="01ad4824-6b0d-4268-bde3-d301d363e4bd" testId="432b532c-c591-8446-9df5-44755a5c4645" testName="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_UnauthorizedRole_ReturnsForbidden(unauthorizedRole: &quot;Operations&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0001205" startTime="2026-11-12T20:53:43.4925829+07:00" endTime="2026-11-12T20:53:43.4926693+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01ad4824-6b0d-4268-bde3-d301d363e4bd" />
+    <UnitTestResult executionId="735f06c7-acd9-4435-90be-41ce9b7498b5" testId="4b0f49ad-707b-5400-a82f-b792af7e7703" testName="QTKD.Tests.UnitTests.CustomerServiceTests.TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest(emptyName: &quot;   &quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0004132" startTime="2026-11-12T20:53:43.4860686+07:00" endTime="2026-11-12T20:53:43.4861158+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="735f06c7-acd9-4435-90be-41ce9b7498b5" />
+    <UnitTestResult executionId="39a9cc62-4f2f-45cf-90a7-48328f0fdad6" testId="208ddd65-1198-643d-76e1-8eb88c954a44" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest" computerName="DESKTOP-48BOI65" duration="00:00:00.0110398" startTime="2026-11-12T20:53:43.5096109+07:00" endTime="2026-11-12T20:53:43.5208883+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="39a9cc62-4f2f-45cf-90a7-48328f0fdad6" />
+    <UnitTestResult executionId="0ad25933-2f69-40e9-b415-5242c055d795" testId="964b25cf-e61e-3094-eb83-beecc40ee613" testName="QTKD.Tests.IntegrationTests.CustomerApiTests.GetAllCustomers_ReturnsInitialSeedCustomers" computerName="DESKTOP-48BOI65" duration="00:00:00.0257136" startTime="2026-11-12T20:53:45.6240348+07:00" endTime="2026-11-12T20:53:45.6498743+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0ad25933-2f69-40e9-b415-5242c055d795" />
+    <UnitTestResult executionId="c56770c7-ce45-414c-af1b-612374a6fef1" testId="1279ec46-23f9-9169-3918-9e67c195fc47" testName="QTKD.Tests.UnitTests.CustomerServiceTests.UpdateCustomer_NonExisting_ReturnsNotFound" computerName="DESKTOP-48BOI65" duration="00:00:00.0033330" startTime="2026-11-12T20:53:43.4865371+07:00" endTime="2026-11-12T20:53:43.4865864+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c56770c7-ce45-414c-af1b-612374a6fef1" />
+    <UnitTestResult executionId="eee32afc-69e9-49c3-b785-8d554e46db3a" testId="8cd0c16d-ecd9-716e-1761-97de6955ebfd" testName="QTKD.Tests.UnitTests.PriceListServiceTests.CreatePriceList_MissingName_ReturnsBadRequest(emptyName: &quot;&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0010862" startTime="2026-11-12T20:53:43.3430871+07:00" endTime="2026-11-12T20:53:43.3431869+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eee32afc-69e9-49c3-b785-8d554e46db3a" />
+    <UnitTestResult executionId="982093bf-70b7-4244-8479-182adb6aa0b0" testId="cf65549c-83a4-f46e-0745-88d894681307" testName="QTKD.Tests.IntegrationTests.CustomerApiTests.TC01_CreateCustomer_WithValidData_ReturnsCreated_AndPersistsToDatabase" computerName="DESKTOP-48BOI65" duration="00:00:02.0737578" startTime="2026-11-12T20:53:43.5312242+07:00" endTime="2026-11-12T20:53:45.6080389+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="982093bf-70b7-4244-8479-182adb6aa0b0" />
+    <UnitTestResult executionId="5f300829-10de-4f89-828e-dae84ac40335" testId="c0b680b2-f17f-4261-4c90-0fcca234c5e0" testName="QTKD.Tests.UnitTests.CustomerServiceTests.CreateCustomer_InvalidStatus_ReturnsBadRequest" computerName="DESKTOP-48BOI65" duration="00:00:00.0007783" startTime="2026-11-12T20:53:43.4867178+07:00" endTime="2026-11-12T20:53:43.4867790+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5f300829-10de-4f89-828e-dae84ac40335" />
+    <UnitTestResult executionId="49ffc6f7-671b-4592-830b-fb6de250a5c2" testId="7a68177a-0e75-edee-d9fa-ae49e37c0cb7" testName="QTKD.Tests.IntegrationTests.ContractApiTests.TC05_SubmitContract_WhenMissingCTR02Conditions_ReturnsBadRequest_AndRemainsDraft" computerName="DESKTOP-48BOI65" duration="00:00:02.5742177" startTime="2026-11-12T20:53:43.1214882+07:00" endTime="2026-11-12T20:53:45.6978836+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="49ffc6f7-671b-4592-830b-fb6de250a5c2" />
+    <UnitTestResult executionId="2dce9772-c68e-4d12-9dda-b85b58a99276" testId="380a0e07-98d1-7e66-75fd-b6f286999529" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC08_SubmitContract_DoubleSubmitWithSameKey_ReturnsSameApprovalIdWithoutDuplicate" computerName="DESKTOP-48BOI65" duration="00:00:00.0043049" startTime="2026-11-12T20:53:43.4934281+07:00" endTime="2026-11-12T20:53:43.4934765+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2dce9772-c68e-4d12-9dda-b85b58a99276" />
+    <UnitTestResult executionId="70b1d089-d206-4399-99d6-9369815a40df" testId="fb433315-d317-83e9-5662-47247c5dd7e2" testName="QTKD.Tests.IntegrationTests.ContractApiTests.TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest" computerName="DESKTOP-48BOI65" duration="00:00:00.0026353" startTime="2026-11-12T20:53:45.7958755+07:00" endTime="2026-11-12T20:53:45.7985352+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="70b1d089-d206-4399-99d6-9369815a40df" />
+    <UnitTestResult executionId="96cb8354-0c86-45ec-a21f-aa664bb53a24" testId="9fe0ac86-6b7a-03bf-4b72-f48e6361de9a" testName="QTKD.Tests.UnitTests.CustomerServiceTests.TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest(emptyName: null)" computerName="DESKTOP-48BOI65" duration="00:00:00.0012854" startTime="2026-11-12T20:53:43.4858813+07:00" endTime="2026-11-12T20:53:43.4859418+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="96cb8354-0c86-45ec-a21f-aa664bb53a24" />
+    <UnitTestResult executionId="94f0ad46-d75a-4093-9cf0-a64069bb81a2" testId="3f74ce9f-2f4e-30f1-99b8-9fb628087051" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict(nonEditableStatus: &quot;Approved&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0008157" startTime="2026-11-12T20:53:43.4939397+07:00" endTime="2026-11-12T20:53:43.4939984+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="94f0ad46-d75a-4093-9cf0-a64069bb81a2" />
+    <UnitTestResult executionId="e80e2c35-2ba7-4a45-8a4f-1cff10355624" testId="5c17c196-5e32-f2a7-ddd4-f3f4d7b3cd00" testName="QTKD.Tests.UnitTests.PriceListServiceTests.AddPriceItem_ValidData_ReturnsCreated" computerName="DESKTOP-48BOI65" duration="00:00:00.0197234" startTime="2026-11-12T20:53:43.3739765+07:00" endTime="2026-11-12T20:53:43.3936502+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e80e2c35-2ba7-4a45-8a4f-1cff10355624" />
+    <UnitTestResult executionId="0729c8d4-187b-45d4-9dc0-f6032cd1eba9" testId="8a9b87dd-6222-9830-8cb6-a56bcf97302b" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict(nonEditableStatus: &quot;Rejected&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0003104" startTime="2026-11-12T20:53:43.4942404+07:00" endTime="2026-11-12T20:53:43.4943024+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0729c8d4-187b-45d4-9dc0-f6032cd1eba9" />
+    <UnitTestResult executionId="4621a6af-f84e-44ae-8ab0-4f7addc676fc" testId="f1ddb457-75ff-c984-2c1f-ff0ab0cd98d3" testName="QTKD.Tests.IntegrationTests.CustomerApiTests.TC02_CreateCustomer_MissingName_ReturnsBadRequest_WithErrorDetail(invalidName: &quot;   &quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0111307" startTime="2026-11-12T20:53:45.6094932+07:00" endTime="2026-11-12T20:53:45.6210771+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4621a6af-f84e-44ae-8ab0-4f7addc676fc" />
+    <UnitTestResult executionId="e23de4a7-474c-4ae0-9a67-04fd53ff0019" testId="3412f8c7-6e61-3b61-43b1-053a3ed96446" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC08_SubmitContract_DoubleSubmitWithoutSameKey_ReturnsConflict" computerName="DESKTOP-48BOI65" duration="00:00:00.0016042" startTime="2026-11-12T20:53:43.4930269+07:00" endTime="2026-11-12T20:53:43.4930857+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e23de4a7-474c-4ae0-9a67-04fd53ff0019" />
+    <UnitTestResult executionId="119c3d8f-1f31-4bba-8c02-75b107fc7ae2" testId="a58b20ff-543e-34d7-b056-9bd8541ae6f1" testName="QTKD.Tests.IntegrationTests.ContractApiTests.TC08_SubmitContract_DoubleSubmit_ReturnsSameApprovalIdWithoutDuplicate" computerName="DESKTOP-48BOI65" duration="00:00:00.0435518" startTime="2026-11-12T20:53:45.6982639+07:00" endTime="2026-11-12T20:53:45.7420839+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="119c3d8f-1f31-4bba-8c02-75b107fc7ae2" />
+    <UnitTestResult executionId="fc6580c3-4e46-4bde-babb-9c1d5c65a5c2" testId="de17de71-a642-ac9e-60b6-f52b7c0d2195" testName="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_UnauthorizedRole_ReturnsForbidden(unauthorizedRole: &quot;Accounting&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0081105" startTime="2026-11-12T20:53:43.4872038+07:00" endTime="2026-11-12T20:53:43.4872499+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fc6580c3-4e46-4bde-babb-9c1d5c65a5c2" />
+    <UnitTestResult executionId="2651acaf-82fe-4e7a-99de-10e13b8dfef2" testId="28c402ef-51db-89dc-e849-6671cf9a0965" testName="QTKD.Tests.IntegrationTests.ContractApiTests.TC04_UpdateContract_WhenInPendingApprovalStatus_ReturnsConflict_AndDataUnchanged" computerName="DESKTOP-48BOI65" duration="00:00:00.0081462" startTime="2026-11-12T20:53:45.7778415+07:00" endTime="2026-11-12T20:53:45.7861288+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2651acaf-82fe-4e7a-99de-10e13b8dfef2" />
+    <UnitTestResult executionId="bfd2cfbc-3ec1-40bf-8548-ac565e2dde33" testId="3837eeb8-d81e-ad51-9a46-1cec56aef832" testName="QTKD.Tests.IntegrationTests.ContractApiTests.EndToEndFlow_CreateCustomer_CreateDraft_FailSubmit_Update_SuccessSubmit" computerName="DESKTOP-48BOI65" duration="00:00:00.0259579" startTime="2026-11-12T20:53:45.7514575+07:00" endTime="2026-11-12T20:53:45.7776367+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bfd2cfbc-3ec1-40bf-8548-ac565e2dde33" />
+    <UnitTestResult executionId="eca9e2f6-db21-4deb-b6c4-6992779b2baf" testId="4ca34491-660f-5a90-1e2a-8d712cea2515" testName="QTKD.Tests.UnitTests.CustomerServiceTests.TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest(emptyName: &quot;&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0134504" startTime="2026-11-12T20:53:43.4681883+07:00" endTime="2026-11-12T20:53:43.4682965+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eca9e2f6-db21-4deb-b6c4-6992779b2baf" />
+    <UnitTestResult executionId="782a3e65-1d2e-4eae-8574-4c0122bdd265" testId="02eb43b3-6c28-260a-6e6a-d012cc876fad" testName="QTKD.Tests.UnitTests.PriceListServiceTests.CreatePriceList_ValidData_ReturnsCreated" computerName="DESKTOP-48BOI65" duration="00:00:00.0042249" startTime="2026-11-12T20:53:43.3939596+07:00" endTime="2026-11-12T20:53:43.4071174+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="782a3e65-1d2e-4eae-8574-4c0122bdd265" />
+    <UnitTestResult executionId="1f8e2ad6-3893-4581-9c8a-2def7154d550" testId="a2546d84-1564-0730-4cfa-4fcfac63bc94" testName="QTKD.Tests.UnitTests.CustomerServiceTests.UpdateCustomer_ValidData_ReturnsSuccess" computerName="DESKTOP-48BOI65" duration="00:00:00.0069867" startTime="2026-11-12T20:53:43.4868978+07:00" endTime="2026-11-12T20:53:43.4869413+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1f8e2ad6-3893-4581-9c8a-2def7154d550" />
+    <UnitTestResult executionId="6ef72da0-745c-486f-80ec-ac1a0340fe3c" testId="febaf439-9223-b468-a0d9-4bbc6b9bd0eb" testName="QTKD.Tests.UnitTests.ContractServiceTests.UpdateContract_WhenStatusIsRevisionRequested_UpdatesAndResetsToDraft" computerName="DESKTOP-48BOI65" duration="00:00:00.0050004" startTime="2026-11-12T20:53:43.4936023+07:00" endTime="2026-11-12T20:53:43.4936507+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6ef72da0-745c-486f-80ec-ac1a0340fe3c" />
+    <UnitTestResult executionId="c4108b88-dfa0-435f-b1ee-02b5ce0f4bc7" testId="12b58991-bf32-f27f-77d3-33dcabb4572f" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict(nonEditableStatus: &quot;Effective&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0034366" startTime="2026-11-12T20:53:43.4937895+07:00" endTime="2026-11-12T20:53:43.4938404+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c4108b88-dfa0-435f-b1ee-02b5ce0f4bc7" />
+    <UnitTestResult executionId="5e1c15a1-de0c-4cff-8817-bceeafcc83ff" testId="c233c0ba-db76-2a0e-e639-ca83d658b328" testName="QTKD.Tests.UnitTests.PriceListServiceTests.CreatePriceList_MissingName_ReturnsBadRequest(emptyName: null)" computerName="DESKTOP-48BOI65" duration="00:00:00.1914604" startTime="2026-11-12T20:53:43.1191827+07:00" endTime="2026-11-12T20:53:43.3252586+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5e1c15a1-de0c-4cff-8817-bceeafcc83ff" />
+    <UnitTestResult executionId="c5c52a28-a6ba-4e9f-aaa2-451a256eccde" testId="55153d99-c017-a675-d1cd-3c6d134f348b" testName="QTKD.Tests.UnitTests.PriceListServiceTests.CreatePriceList_MissingName_ReturnsBadRequest(emptyName: &quot;   &quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0000733" startTime="2026-11-12T20:53:43.3441776+07:00" endTime="2026-11-12T20:53:43.3442695+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c5c52a28-a6ba-4e9f-aaa2-451a256eccde" />
+    <UnitTestResult executionId="c0ba3b99-f6e5-4b06-b666-7d52206d26d7" testId="e77f4826-c8c7-4cdb-2639-3b16d9c1b9c4" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC05_SubmitContract_MissingRequiredContentAndAttachment_ReturnsBadRequest" computerName="DESKTOP-48BOI65" duration="00:00:00.0034380" startTime="2026-11-12T20:53:43.5215741+07:00" endTime="2026-11-12T20:53:43.5255800+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0ba3b99-f6e5-4b06-b666-7d52206d26d7" />
+    <UnitTestResult executionId="d03f3f09-65b9-4cea-98d5-b5929b3546b8" testId="5c62ee88-04c3-a7de-1b1b-6bd421b501c9" testName="QTKD.Tests.IntegrationTests.CustomerApiTests.TC02_CreateCustomer_MissingName_ReturnsBadRequest_WithErrorDetail(invalidName: &quot;&quot;)" computerName="DESKTOP-48BOI65" duration="00:00:00.0022437" startTime="2026-11-12T20:53:45.6213610+07:00" endTime="2026-11-12T20:53:45.6236782+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d03f3f09-65b9-4cea-98d5-b5929b3546b8" />
+    <UnitTestResult executionId="5eb2ba03-3c5e-40a8-92d9-4648c7d273aa" testId="437e67c0-990f-0173-a08b-d50ba0396563" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC06_SubmitContract_WhenAllConditionsMet_TransitionsToPendingApproval" computerName="DESKTOP-48BOI65" duration="00:00:00.0220798" startTime="2026-11-12T20:53:43.4957594+07:00" endTime="2026-11-12T20:53:43.5091982+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5eb2ba03-3c5e-40a8-92d9-4648c7d273aa" />
+    <UnitTestResult executionId="3c127b51-f181-4f6e-b874-78dc2ed8b2e3" testId="e6793994-eefa-f00b-3d5a-4a7ea7f5573b" testName="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_CustomerInactive_ReturnsBadRequest" computerName="DESKTOP-48BOI65" duration="00:00:00.0017429" startTime="2026-11-12T20:53:43.5258457+07:00" endTime="2026-11-12T20:53:43.5272866+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3c127b51-f181-4f6e-b874-78dc2ed8b2e3" />
+    <UnitTestResult executionId="14b993da-4774-42f2-b61f-d48ac22780e4" testId="983a9531-0b18-f092-be3f-12d0a7f5bb7f" testName="QTKD.Tests.UnitTests.PriceListServiceTests.AddPriceItem_InvalidUnitPrice_ReturnsBadRequest(invalidPrice: 0)" computerName="DESKTOP-48BOI65" duration="00:00:00.0004385" startTime="2026-11-12T20:53:43.3735427+07:00" endTime="2026-11-12T20:53:43.3737651+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="14b993da-4774-42f2-b61f-d48ac22780e4" />
+    <UnitTestResult executionId="75db6dfa-4f22-467e-a7ce-5dc87886eef9" testId="f9d1cc8d-217b-6442-97b3-871be49c1409" testName="QTKD.Tests.UnitTests.PriceListServiceTests.AddPriceItem_InvalidUnitPrice_ReturnsBadRequest(invalidPrice: -5000)" computerName="DESKTOP-48BOI65" duration="00:00:00.0014687" startTime="2026-11-12T20:53:43.3720583+07:00" endTime="2026-11-12T20:53:43.3733043+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="75db6dfa-4f22-467e-a7ce-5dc87886eef9" />
+    <UnitTestResult executionId="5dcfce13-2301-4429-b1a0-2518736407a0" testId="ae7d0b96-f6fd-5c9f-1435-406339171451" testName="QTKD.Tests.UnitTests.CustomerServiceTests.TC01_CreateCustomer_WithValidData_ReturnsSuccess" computerName="DESKTOP-48BOI65" duration="00:00:00.0140840" startTime="2026-11-12T20:53:43.4863405+07:00" endTime="2026-11-12T20:53:43.4864000+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5dcfce13-2301-4429-b1a0-2518736407a0" />
+    <UnitTestResult executionId="2c274dc6-b4ef-4882-a38d-51a7999f9a7b" testId="c488a9ce-dbb2-478a-d29d-cc4f268eb852" testName="QTKD.Tests.IntegrationTests.ContractApiTests.TC03_UpdateContract_WhenInDraftStatus_ReturnsOk_AndUpdatesDatabase" computerName="DESKTOP-48BOI65" duration="00:00:00.0090963" startTime="2026-11-12T20:53:45.7875312+07:00" endTime="2026-11-12T20:53:45.7955964+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2c274dc6-b4ef-4882-a38d-51a7999f9a7b" />
+    <UnitTestResult executionId="c0013dd8-9770-4f1c-bc20-e328bcab2bf7" testId="86c8feb7-4e1c-81be-6e07-dfed4ea9d062" testName="QTKD.Tests.UnitTests.ContractServiceTests.TC07_UpdateContract_DirectApprovedStatus_ReturnsBadRequest" computerName="DESKTOP-48BOI65" duration="00:00:00.0014104" startTime="2026-11-12T20:53:43.4953489+07:00" endTime="2026-11-12T20:53:43.4954255+07:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c0013dd8-9770-4f1c-bc20-e328bcab2bf7" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC03_UpdateContract_WhenStatusIsDraft_ReturnsSuccess" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="16fb5e78-7f28-7f02-c056-3a57df81ab78">
+      <Execution id="06079f77-2f3d-421c-9393-73aa36799cc9" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC03_UpdateContract_WhenStatusIsDraft_ReturnsSuccess" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_UnauthorizedRole_ReturnsForbidden(unauthorizedRole: &quot;Accounting&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="de17de71-a642-ac9e-60b6-f52b7c0d2195">
+      <Execution id="fc6580c3-4e46-4bde-babb-9c1d5c65a5c2" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="SubmitContract_UnauthorizedRole_ReturnsForbidden" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.CustomerApiTests.TC01_CreateCustomer_WithValidData_ReturnsCreated_AndPersistsToDatabase" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="cf65549c-83a4-f46e-0745-88d894681307">
+      <Execution id="982093bf-70b7-4244-8479-182adb6aa0b0" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.CustomerApiTests" name="TC01_CreateCustomer_WithValidData_ReturnsCreated_AndPersistsToDatabase" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.ContractApiTests.TC03_UpdateContract_WhenInDraftStatus_ReturnsOk_AndUpdatesDatabase" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="c488a9ce-dbb2-478a-d29d-cc4f268eb852">
+      <Execution id="2c274dc6-b4ef-4882-a38d-51a7999f9a7b" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.ContractApiTests" name="TC03_UpdateContract_WhenInDraftStatus_ReturnsOk_AndUpdatesDatabase" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_InvalidEffectiveDates_ReturnsBadRequest" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="e05c3063-ae43-203c-5bad-6ae49c3c3746">
+      <Execution id="987f3e0a-bf29-48ab-8404-29ca7e730d0a" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="SubmitContract_InvalidEffectiveDates_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.CustomerApiTests.TC02_CreateCustomer_MissingName_ReturnsBadRequest_WithErrorDetail(invalidName: &quot;&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="5c62ee88-04c3-a7de-1b1b-6bd421b501c9">
+      <Execution id="d03f3f09-65b9-4cea-98d5-b5929b3546b8" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.CustomerApiTests" name="TC02_CreateCustomer_MissingName_ReturnsBadRequest_WithErrorDetail" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.PriceListServiceTests.CreatePriceList_MissingName_ReturnsBadRequest(emptyName: null)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="c233c0ba-db76-2a0e-e639-ca83d658b328">
+      <Execution id="5e1c15a1-de0c-4cff-8817-bceeafcc83ff" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.PriceListServiceTests" name="CreatePriceList_MissingName_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.ContractApiTests.TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="fb433315-d317-83e9-5662-47247c5dd7e2">
+      <Execution id="70b1d089-d206-4399-99d6-9369815a40df" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.ContractApiTests" name="TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.CustomerServiceTests.TC01_CreateCustomer_WithValidData_ReturnsSuccess" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="ae7d0b96-f6fd-5c9f-1435-406339171451">
+      <Execution id="5dcfce13-2301-4429-b1a0-2518736407a0" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.CustomerServiceTests" name="TC01_CreateCustomer_WithValidData_ReturnsSuccess" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict(nonEditableStatus: &quot;PendingApproval&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="a60895c0-a6d5-8d3d-10c6-31174bdaf399">
+      <Execution id="e0a92a92-da2c-46a4-9c70-c6d8e7579cb5" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.CustomerServiceTests.TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest(emptyName: &quot;   &quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="4b0f49ad-707b-5400-a82f-b792af7e7703">
+      <Execution id="735f06c7-acd9-4435-90be-41ce9b7498b5" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.CustomerServiceTests" name="TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.ContractApiTests.TC04_UpdateContract_WhenInPendingApprovalStatus_ReturnsConflict_AndDataUnchanged" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="28c402ef-51db-89dc-e849-6671cf9a0965">
+      <Execution id="2651acaf-82fe-4e7a-99de-10e13b8dfef2" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.ContractApiTests" name="TC04_UpdateContract_WhenInPendingApprovalStatus_ReturnsConflict_AndDataUnchanged" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="208ddd65-1198-643d-76e1-8eb88c954a44">
+      <Execution id="39a9cc62-4f2f-45cf-90a7-48328f0fdad6" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC07_CreateContract_DirectApprovedStatus_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.CustomerServiceTests.CreateCustomer_InvalidStatus_ReturnsBadRequest" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="c0b680b2-f17f-4261-4c90-0fcca234c5e0">
+      <Execution id="5f300829-10de-4f89-828e-dae84ac40335" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.CustomerServiceTests" name="CreateCustomer_InvalidStatus_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.CustomerServiceTests.TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest(emptyName: null)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="9fe0ac86-6b7a-03bf-4b72-f48e6361de9a">
+      <Execution id="96cb8354-0c86-45ec-a21f-aa664bb53a24" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.CustomerServiceTests" name="TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.PriceListServiceTests.AddPriceItem_ValidData_ReturnsCreated" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="5c17c196-5e32-f2a7-ddd4-f3f4d7b3cd00">
+      <Execution id="e80e2c35-2ba7-4a45-8a4f-1cff10355624" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.PriceListServiceTests" name="AddPriceItem_ValidData_ReturnsCreated" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.ContractApiTests.TC06_SubmitContract_WhenValid_TransitionsToPendingApproval_AndPersistsToDb" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="49cf31f9-1658-0ceb-aaae-8a01846a59a4">
+      <Execution id="641ee0ed-4c1d-4a3f-ba67-cbb19c02a3e9" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.ContractApiTests" name="TC06_SubmitContract_WhenValid_TransitionsToPendingApproval_AndPersistsToDb" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.PriceListServiceTests.CreatePriceList_ValidData_ReturnsCreated" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="02eb43b3-6c28-260a-6e6a-d012cc876fad">
+      <Execution id="782a3e65-1d2e-4eae-8574-4c0122bdd265" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.PriceListServiceTests" name="CreatePriceList_ValidData_ReturnsCreated" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.UpdateContract_WhenStatusIsRevisionRequested_UpdatesAndResetsToDraft" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="febaf439-9223-b468-a0d9-4bbc6b9bd0eb">
+      <Execution id="6ef72da0-745c-486f-80ec-ac1a0340fe3c" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="UpdateContract_WhenStatusIsRevisionRequested_UpdatesAndResetsToDraft" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.PriceListServiceTests.AddPriceItem_InvalidUnitPrice_ReturnsBadRequest(invalidPrice: 0)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="983a9531-0b18-f092-be3f-12d0a7f5bb7f">
+      <Execution id="14b993da-4774-42f2-b61f-d48ac22780e4" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.PriceListServiceTests" name="AddPriceItem_InvalidUnitPrice_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC07_UpdateContract_DirectApprovedStatus_ReturnsBadRequest" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="86c8feb7-4e1c-81be-6e07-dfed4ea9d062">
+      <Execution id="c0013dd8-9770-4f1c-bc20-e328bcab2bf7" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC07_UpdateContract_DirectApprovedStatus_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_UnauthorizedRole_ReturnsForbidden(unauthorizedRole: &quot;Guest&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="44b178d4-f8d3-7bd1-1366-dde5c8c1d4ab">
+      <Execution id="0f87032f-cb5e-4a85-b81e-d703dbed78dd" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="SubmitContract_UnauthorizedRole_ReturnsForbidden" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.PriceListServiceTests.CreatePriceList_MissingName_ReturnsBadRequest(emptyName: &quot;   &quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="55153d99-c017-a675-d1cd-3c6d134f348b">
+      <Execution id="c5c52a28-a6ba-4e9f-aaa2-451a256eccde" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.PriceListServiceTests" name="CreatePriceList_MissingName_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_CustomerInactive_ReturnsBadRequest" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="e6793994-eefa-f00b-3d5a-4a7ea7f5573b">
+      <Execution id="3c127b51-f181-4f6e-b874-78dc2ed8b2e3" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="SubmitContract_CustomerInactive_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.SubmitContract_UnauthorizedRole_ReturnsForbidden(unauthorizedRole: &quot;Operations&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="432b532c-c591-8446-9df5-44755a5c4645">
+      <Execution id="01ad4824-6b0d-4268-bde3-d301d363e4bd" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="SubmitContract_UnauthorizedRole_ReturnsForbidden" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.ContractApiTests.TC05_SubmitContract_WhenMissingCTR02Conditions_ReturnsBadRequest_AndRemainsDraft" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="7a68177a-0e75-edee-d9fa-ae49e37c0cb7">
+      <Execution id="49ffc6f7-671b-4592-830b-fb6de250a5c2" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.ContractApiTests" name="TC05_SubmitContract_WhenMissingCTR02Conditions_ReturnsBadRequest_AndRemainsDraft" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC05_SubmitContract_MissingRequiredContentAndAttachment_ReturnsBadRequest" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="e77f4826-c8c7-4cdb-2639-3b16d9c1b9c4">
+      <Execution id="c0ba3b99-f6e5-4b06-b666-7d52206d26d7" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC05_SubmitContract_MissingRequiredContentAndAttachment_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict(nonEditableStatus: &quot;Approved&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="3f74ce9f-2f4e-30f1-99b8-9fb628087051">
+      <Execution id="94f0ad46-d75a-4093-9cf0-a64069bb81a2" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.ContractApiTests.TC08_SubmitContract_DoubleSubmit_ReturnsSameApprovalIdWithoutDuplicate" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="a58b20ff-543e-34d7-b056-9bd8541ae6f1">
+      <Execution id="119c3d8f-1f31-4bba-8c02-75b107fc7ae2" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.ContractApiTests" name="TC08_SubmitContract_DoubleSubmit_ReturnsSameApprovalIdWithoutDuplicate" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.CustomerApiTests.TC02_CreateCustomer_MissingName_ReturnsBadRequest_WithErrorDetail(invalidName: &quot;   &quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="f1ddb457-75ff-c984-2c1f-ff0ab0cd98d3">
+      <Execution id="4621a6af-f84e-44ae-8ab0-4f7addc676fc" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.CustomerApiTests" name="TC02_CreateCustomer_MissingName_ReturnsBadRequest_WithErrorDetail" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.PriceListServiceTests.AddPriceItem_DuplicateServiceCode_ReturnsConflict" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="1b551130-cb28-032c-d8b0-48f5390e79d9">
+      <Execution id="9cf4f762-d3c1-4849-b032-6c412e7c9ebb" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.PriceListServiceTests" name="AddPriceItem_DuplicateServiceCode_ReturnsConflict" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC08_SubmitContract_DoubleSubmitWithoutSameKey_ReturnsConflict" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="3412f8c7-6e61-3b61-43b1-053a3ed96446">
+      <Execution id="e23de4a7-474c-4ae0-9a67-04fd53ff0019" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC08_SubmitContract_DoubleSubmitWithoutSameKey_ReturnsConflict" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.CustomerApiTests.GetAllCustomers_ReturnsInitialSeedCustomers" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="964b25cf-e61e-3094-eb83-beecc40ee613">
+      <Execution id="0ad25933-2f69-40e9-b415-5242c055d795" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.CustomerApiTests" name="GetAllCustomers_ReturnsInitialSeedCustomers" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC06_SubmitContract_WhenAllConditionsMet_TransitionsToPendingApproval" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="437e67c0-990f-0173-a08b-d50ba0396563">
+      <Execution id="5eb2ba03-3c5e-40a8-92d9-4648c7d273aa" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC06_SubmitContract_WhenAllConditionsMet_TransitionsToPendingApproval" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict(nonEditableStatus: &quot;Effective&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="12b58991-bf32-f27f-77d3-33dcabb4572f">
+      <Execution id="c4108b88-dfa0-435f-b1ee-02b5ce0f4bc7" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.CustomerServiceTests.TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest(emptyName: &quot;&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="4ca34491-660f-5a90-1e2a-8d712cea2515">
+      <Execution id="eca9e2f6-db21-4deb-b6c4-6992779b2baf" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.CustomerServiceTests" name="TC02_CreateCustomer_MissingRequiredName_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.IntegrationTests.ContractApiTests.EndToEndFlow_CreateCustomer_CreateDraft_FailSubmit_Update_SuccessSubmit" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="3837eeb8-d81e-ad51-9a46-1cec56aef832">
+      <Execution id="bfd2cfbc-3ec1-40bf-8548-ac565e2dde33" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.IntegrationTests.ContractApiTests" name="EndToEndFlow_CreateCustomer_CreateDraft_FailSubmit_Update_SuccessSubmit" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict(nonEditableStatus: &quot;Rejected&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="8a9b87dd-6222-9830-8cb6-a56bcf97302b">
+      <Execution id="0729c8d4-187b-45d4-9dc0-f6032cd1eba9" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC04_UpdateContract_WhenStatusNotEditable_ReturnsConflict" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.CustomerServiceTests.UpdateCustomer_ValidData_ReturnsSuccess" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="a2546d84-1564-0730-4cfa-4fcfac63bc94">
+      <Execution id="1f8e2ad6-3893-4581-9c8a-2def7154d550" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.CustomerServiceTests" name="UpdateCustomer_ValidData_ReturnsSuccess" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.PriceListServiceTests.CreatePriceList_MissingName_ReturnsBadRequest(emptyName: &quot;&quot;)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="8cd0c16d-ecd9-716e-1761-97de6955ebfd">
+      <Execution id="eee32afc-69e9-49c3-b785-8d554e46db3a" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.PriceListServiceTests" name="CreatePriceList_MissingName_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.PriceListServiceTests.AddPriceItem_InvalidUnitPrice_ReturnsBadRequest(invalidPrice: -5000)" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="f9d1cc8d-217b-6442-97b3-871be49c1409">
+      <Execution id="75db6dfa-4f22-467e-a7ce-5dc87886eef9" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.PriceListServiceTests" name="AddPriceItem_InvalidUnitPrice_ReturnsBadRequest" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.CustomerServiceTests.UpdateCustomer_NonExisting_ReturnsNotFound" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="1279ec46-23f9-9169-3918-9e67c195fc47">
+      <Execution id="c56770c7-ce45-414c-af1b-612374a6fef1" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.CustomerServiceTests" name="UpdateCustomer_NonExisting_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="QTKD.Tests.UnitTests.ContractServiceTests.TC08_SubmitContract_DoubleSubmitWithSameKey_ReturnsSameApprovalIdWithoutDuplicate" storage="d:\1_personal\visual-code\1_forthyear\ptud\qtkd\tests\bin\debug\net10.0\qtkd.tests.dll" id="380a0e07-98d1-7e66-75fd-b6f286999529">
+      <Execution id="2dce9772-c68e-4d12-9dda-b85b58a99276" />
+      <TestMethod codeBase="D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\tests\bin\Debug\net10.0\QTKD.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="QTKD.Tests.UnitTests.ContractServiceTests" name="TC08_SubmitContract_DoubleSubmitWithSameKey_ReturnsSameApprovalIdWithoutDuplicate" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="16fb5e78-7f28-7f02-c056-3a57df81ab78" executionId="06079f77-2f3d-421c-9393-73aa36799cc9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a60895c0-a6d5-8d3d-10c6-31174bdaf399" executionId="e0a92a92-da2c-46a4-9c70-c6d8e7579cb5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e05c3063-ae43-203c-5bad-6ae49c3c3746" executionId="987f3e0a-bf29-48ab-8404-29ca7e730d0a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1b551130-cb28-032c-d8b0-48f5390e79d9" executionId="9cf4f762-d3c1-4849-b032-6c412e7c9ebb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="44b178d4-f8d3-7bd1-1366-dde5c8c1d4ab" executionId="0f87032f-cb5e-4a85-b81e-d703dbed78dd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="49cf31f9-1658-0ceb-aaae-8a01846a59a4" executionId="641ee0ed-4c1d-4a3f-ba67-cbb19c02a3e9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="432b532c-c591-8446-9df5-44755a5c4645" executionId="01ad4824-6b0d-4268-bde3-d301d363e4bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4b0f49ad-707b-5400-a82f-b792af7e7703" executionId="735f06c7-acd9-4435-90be-41ce9b7498b5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="208ddd65-1198-643d-76e1-8eb88c954a44" executionId="39a9cc62-4f2f-45cf-90a7-48328f0fdad6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="964b25cf-e61e-3094-eb83-beecc40ee613" executionId="0ad25933-2f69-40e9-b415-5242c055d795" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1279ec46-23f9-9169-3918-9e67c195fc47" executionId="c56770c7-ce45-414c-af1b-612374a6fef1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8cd0c16d-ecd9-716e-1761-97de6955ebfd" executionId="eee32afc-69e9-49c3-b785-8d554e46db3a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cf65549c-83a4-f46e-0745-88d894681307" executionId="982093bf-70b7-4244-8479-182adb6aa0b0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0b680b2-f17f-4261-4c90-0fcca234c5e0" executionId="5f300829-10de-4f89-828e-dae84ac40335" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7a68177a-0e75-edee-d9fa-ae49e37c0cb7" executionId="49ffc6f7-671b-4592-830b-fb6de250a5c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="380a0e07-98d1-7e66-75fd-b6f286999529" executionId="2dce9772-c68e-4d12-9dda-b85b58a99276" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fb433315-d317-83e9-5662-47247c5dd7e2" executionId="70b1d089-d206-4399-99d6-9369815a40df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9fe0ac86-6b7a-03bf-4b72-f48e6361de9a" executionId="96cb8354-0c86-45ec-a21f-aa664bb53a24" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3f74ce9f-2f4e-30f1-99b8-9fb628087051" executionId="94f0ad46-d75a-4093-9cf0-a64069bb81a2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c17c196-5e32-f2a7-ddd4-f3f4d7b3cd00" executionId="e80e2c35-2ba7-4a45-8a4f-1cff10355624" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8a9b87dd-6222-9830-8cb6-a56bcf97302b" executionId="0729c8d4-187b-45d4-9dc0-f6032cd1eba9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f1ddb457-75ff-c984-2c1f-ff0ab0cd98d3" executionId="4621a6af-f84e-44ae-8ab0-4f7addc676fc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3412f8c7-6e61-3b61-43b1-053a3ed96446" executionId="e23de4a7-474c-4ae0-9a67-04fd53ff0019" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a58b20ff-543e-34d7-b056-9bd8541ae6f1" executionId="119c3d8f-1f31-4bba-8c02-75b107fc7ae2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de17de71-a642-ac9e-60b6-f52b7c0d2195" executionId="fc6580c3-4e46-4bde-babb-9c1d5c65a5c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="28c402ef-51db-89dc-e849-6671cf9a0965" executionId="2651acaf-82fe-4e7a-99de-10e13b8dfef2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3837eeb8-d81e-ad51-9a46-1cec56aef832" executionId="bfd2cfbc-3ec1-40bf-8548-ac565e2dde33" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ca34491-660f-5a90-1e2a-8d712cea2515" executionId="eca9e2f6-db21-4deb-b6c4-6992779b2baf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="02eb43b3-6c28-260a-6e6a-d012cc876fad" executionId="782a3e65-1d2e-4eae-8574-4c0122bdd265" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a2546d84-1564-0730-4cfa-4fcfac63bc94" executionId="1f8e2ad6-3893-4581-9c8a-2def7154d550" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="febaf439-9223-b468-a0d9-4bbc6b9bd0eb" executionId="6ef72da0-745c-486f-80ec-ac1a0340fe3c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="12b58991-bf32-f27f-77d3-33dcabb4572f" executionId="c4108b88-dfa0-435f-b1ee-02b5ce0f4bc7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c233c0ba-db76-2a0e-e639-ca83d658b328" executionId="5e1c15a1-de0c-4cff-8817-bceeafcc83ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="55153d99-c017-a675-d1cd-3c6d134f348b" executionId="c5c52a28-a6ba-4e9f-aaa2-451a256eccde" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e77f4826-c8c7-4cdb-2639-3b16d9c1b9c4" executionId="c0ba3b99-f6e5-4b06-b666-7d52206d26d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c62ee88-04c3-a7de-1b1b-6bd421b501c9" executionId="d03f3f09-65b9-4cea-98d5-b5929b3546b8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="437e67c0-990f-0173-a08b-d50ba0396563" executionId="5eb2ba03-3c5e-40a8-92d9-4648c7d273aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e6793994-eefa-f00b-3d5a-4a7ea7f5573b" executionId="3c127b51-f181-4f6e-b874-78dc2ed8b2e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="983a9531-0b18-f092-be3f-12d0a7f5bb7f" executionId="14b993da-4774-42f2-b61f-d48ac22780e4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f9d1cc8d-217b-6442-97b3-871be49c1409" executionId="75db6dfa-4f22-467e-a7ce-5dc87886eef9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae7d0b96-f6fd-5c9f-1435-406339171451" executionId="5dcfce13-2301-4429-b1a0-2518736407a0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c488a9ce-dbb2-478a-d29d-cc4f268eb852" executionId="2c274dc6-b4ef-4882-a38d-51a7999f9a7b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="86c8feb7-4e1c-81be-6e07-dfed4ea9d062" executionId="c0013dd8-9770-4f1c-bc20-e328bcab2bf7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="43" executed="43" passed="43" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.12)&#xD;
+[xUnit.net 00:00:00.24]   Discovering: QTKD.Tests&#xD;
+[xUnit.net 00:00:00.43]   Discovered:  QTKD.Tests&#xD;
+[xUnit.net 00:00:00.51]   Starting:    QTKD.Tests&#xD;
+     Warning:&#xD;
+     The component "Fluent Assertions" is governed by the rules defined in the Xceed License Agreement and&#xD;
+     the Xceed Fluent Assertions Community License. You may use Fluent Assertions free of charge for&#xD;
+     non-commercial use only. An active subscription is required to use Fluent Assertions for commercial use.&#xD;
+     Please contact Xceed Sales mailto:sales@xceed.com to acquire a subscription at a very low cost.&#xD;
+     A paid commercial license supports the development and continued increasing support of&#xD;
+     Fluent Assertions users under both commercial and community licenses. Help us&#xD;
+     keep Fluent Assertions at the forefront of unit testing.&#xD;
+     For more information, visit https://xceed.com/products/unit-testing/fluent-assertions/&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 6 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 6 entities to in-memory store.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Testing&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Testing&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\src\QTKD.Api&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: D:\1_Personal\Visual-Code\1_ForthYear\PTUD\QTKD\src\QTKD.Api&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+[xUnit.net 00:00:03.24]   Finished:    QTKD.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

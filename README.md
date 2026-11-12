@@ -27,6 +27,7 @@ QTKD/
 │       └── QTKD.Api.http                  # Kịch bản kiểm thử trực tiếp API qua REST Client
 ├── tests/                                 # [Kiểm thử tự động - xUnit (Tuần 07)]
 │   ├── QTKD.Tests.csproj                  # Project xUnit Test (.NET 10)
+│   ├── test_results.trx                   # Kết quả thực thi kiểm thử chuẩn Visual Studio Test (.trx)
 │   ├── UnitTests/                         # Kiểm thử đơn vị (Service & Quy tắc CTR-01..03, Moq Repository)
 │   │   ├── CustomerServiceTests.cs        # 5 tests: Tạo mới, cập nhật, validation dữ liệu khách hàng
 │   │   ├── ContractServiceTests.cs        # 13 tests: CTR-01, CTR-02, CTR-03, US03 & Chống gửi lặp
@@ -35,10 +36,8 @@ QTKD/
 │       ├── CustomWebApplicationFactory.cs # WebApplicationFactory giả lập API & In-Memory DB cô lập
 │       ├── CustomerApiTests.cs            # 7 tests: POST, GET, PUT /api/customers & đọc lại từ DB
 │       └── ContractApiTests.cs            # 13 tests: Đầy đủ TC01..TC08 & Luồng liên hoàn End-to-End
-└── docs/                                  # [Tài liệu Thiết kế, Đặc tả API & Minh chứng]
-    ├── API_AND_BUSINESS_RULES.md          # Chi tiết API, mẫu Request/Response JSON & đối chiếu nghiệp vụ
-    └── evidence/                          # File kết quả kiểm thử (.trx) và ảnh/video minh chứng
-        └── test_results.trx               # Kết quả thực thi kiểm thử chuẩn Visual Studio Test
+└── docs/                                  # [Tài liệu Thiết kế, Đặc tả API]
+    └── API_AND_BUSINESS_RULES.md          # Chi tiết API, mẫu Request/Response JSON & đối chiếu nghiệp vụ
 ```
 
 ### Sơ đồ luồng xử lý 3 tầng:
@@ -150,10 +149,10 @@ Dự án kiểm thử tự động được đặt tại thư mục `tests/`, t�
 Từ thư mục gốc `QTKD`, chạy lệnh:
 
 ```powershell
-dotnet test --logger "trx;LogFileName=../../docs/evidence/test_results.trx"
+dotnet test --results-directory ./tests --logger "trx;LogFileName=test_results.trx"
 ```
 
-- Toàn bộ kết quả kiểm thử được tự động xuất ra file minh chứng chuẩn Microsoft Visual Studio Test: [`docs/evidence/test_results.trx`](docs/evidence/test_results.trx).
+- Toàn bộ kết quả kiểm thử được tự động xuất ra file minh chứng chuẩn Microsoft Visual Studio Test tại thư mục `tests/`: [`tests/test_results.trx`](tests/test_results.trx).
 - Kết quả thực thi: **Passed: 43 / 43 tests (100% PASS), thời gian chạy ~2 giây.**
 
 ### 5.2. Bảng kết quả kiểm thử bắt buộc (TC01 – TC08)
@@ -217,3 +216,31 @@ Total tests: 43 | Passed: 43 | Failed: 0 | Skipped: 0 | Duration: 2.0s
    - **Xác thực & Phân quyền:** Chưa tích hợp hệ thống Identity/OAuth2 Server; vai trò người dùng (`Sales`) hiện đang được mô phỏng qua HTTP Header `X-Role`.
    - **Quy trình Phê duyệt:** Chưa xây dựng module Approval/Payment đa cấp thực tế; mã `ApprovalId` và thời gian `SubmittedAt` đang được sinh tự động mô phỏng theo yêu cầu của User Story US03.
    - **Giao diện:** Chưa có giao diện Web Frontend; hiện tại hệ thống được vận hành và tương tác hoàn toàn thông qua Web API chuẩn và giao diện Scalar API Reference.
+
+---
+
+## 6. Hướng dẫn Quy trình Quay Video Demo Nộp bài
+
+Thực hiện lần lượt 5 bước trên Terminal:
+
+```powershell
+# Bước 1: CLONE — Tải mã nguồn về thư mục mới
+git clone <URL_REPOSITORY_CUA_BAN> QTKD_Demo
+cd QTKD_Demo
+
+# Bước 2: CẤU HÌNH & RESTORE — Kiểm tra chuỗi kết nối và khôi phục package
+Get-Content src/QTKD.Api/appsettings.Development.json
+dotnet restore
+
+# Bước 3: MIGRATION — Cập nhật cấu trúc database và nạp dữ liệu mẫu
+dotnet ef database update --project src/QTKD.Api
+
+# Bước 4: CHẠY API — Khởi động Web API và xem tài liệu Scalar
+dotnet run --project src/QTKD.Api
+# (Mở trình duyệt truy cập: http://localhost:5211/scalar/v1, sau đó nhấn Ctrl+C để dừng)
+
+# Bước 5: CHẠY TEST — Chạy toàn bộ 43 test case và xuất file kết quả minh chứng vào thư mục tests/
+dotnet test --results-directory ./tests --logger "trx;LogFileName=test_results.trx"
+```
+*(Kết quả hiển thị trên terminal: `Passed! - Failed: 0, Passed: 43, Skipped: 0, Total: 43`).*
+
